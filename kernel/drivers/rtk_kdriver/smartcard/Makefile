@@ -1,0 +1,3 @@
+KBUILD_CFLAGS += -Werror
+obj-$(CONFIG_RTK_KDRV_SMARTCARD)+= core/
+obj-$(CONFIG_RTK_KDRV_SMARTCARD)+= adapter/

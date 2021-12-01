@@ -1,0 +1,2 @@
+kernel/fs/ufsd/ufsd.ko: kernel/fs/ufsd/jnl.ko
+kernel/fs/ufsd/jnl.ko:

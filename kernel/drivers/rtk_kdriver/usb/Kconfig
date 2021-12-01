@@ -1,0 +1,41 @@
+menu "RTK USB Driver"
+
+config RTK_KDRV_USB
+    bool "RTK USB driver support"
+    depends on USB
+
+if RTK_KDRV_USB
+
+config RTK_KDRV_USB_CORE
+    tristate "RTK USB CORE DRIVER SUPPORT"
+    ---help---
+
+config RTK_KDRV_XHCI_HCD_PLATFORM
+    tristate "RTK XHCI HCD Platform support"
+    depends on USB_XHCI_HCD
+    ---help---
+
+config RTK_KDRV_XHCI_SAVE_POWER_WHEN_NO_U3
+    bool "Save power consumption when USB3.0 is not in use"
+    depends on RTK_KDRV_XHCI_HCD_PLATFORM
+    ---help---
+
+config RTK_KDRV_EHCI_HCD_PLATFORM
+    tristate "RTK EHCI HCD Platform support"
+    depends on USB_EHCI_HCD
+    ---help---
+
+config RTK_KDRV_OHCI_HCD_PLATFORM
+    tristate "RTK OHCI HCD Platform support"
+    depends on USB_OHCI_HCD
+    ---help---
+
+
+config RTK_RESUME_SEQ_FOR_USB_DONGLE
+    tristate "Put wifi dongle as the last resume device"
+    depends on RTK_KDRV_USB
+    ---help---
+
+endif
+
+endmenu

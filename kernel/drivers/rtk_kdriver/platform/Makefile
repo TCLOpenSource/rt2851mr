@@ -1,0 +1,1 @@
+obj-$(CONFIG_CUSTOMER_TV006) += tv006/

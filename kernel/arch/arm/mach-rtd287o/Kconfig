@@ -1,0 +1,129 @@
+if ARCH_RTK287O
+
+menu "RTK287O specific features"
+	depends on ARCH_RTK287O
+
+config REALTEK_FPGA
+	bool "Support Realtek FPGA"
+	default n
+
+config BW_96B_ALIGNED
+        bool "Support 96byte address alignment for BW"
+        default y
+        help
+          If platform had 3DDR or 2DDR access with DCx1, please select it
+
+config REALTEK_SECURE
+	bool "Enable Secure Solution"
+	default n
+	help
+		Provide realtek secure solution.
+
+config REALTEK_SECURE_DDK
+	depends on REALTEK_SECURE
+	bool "Enable Secure DDK"
+	default n
+	help
+		Enable Secure DDK
+
+config REALTEK_SECURE_OPENBSD
+	depends on REALTEK_SECURE
+	bool "Enable KCPU OPENBSD"
+	default n
+	help
+		Enable KCPU run OPENBSD OS
+
+config REALTEK_RESCUE_LINUX
+	bool "Rescue Linux"
+	default n
+
+config REALTEK_POWER_CUT
+        bool "Enable Realtek Power Cut"
+        default n
+
+config REALTEK_DEV_MEM
+	bool "Provide the /dev/rtkmem interface."
+	default n
+	help
+		Provide an interface to replace /dev/mem.
+
+config REALTEK_MANAGE_OVERLAPPED_REGION
+        bool "Manage the memory region overlapped by RBUS & NOR."
+        default n
+        help
+          Put the memory region overlapped by RBUS & NOR under the control of linux.
+
+config REALTEK_PCBMGR
+	bool "Use Realtek PCB Manager sysfs"
+	default n
+	help
+		pcb manager enable, pcb manager will export the pcb info at /sys/realtek_boards/pcb_enum
+
+config REALTEK_ARM_WRAPPER
+	bool "ARM WRAPPER Detector Enable"
+	default y
+	help
+	  support ARM WRAPPER Detector
+
+config REALTEK_KEYPAD
+	bool "keypad"
+	default n
+	help
+	  support keypad device
+
+config MHL_INT_SUPPORT
+	bool "Realtek MHL Cbus interrupt"
+	default y
+
+config REALTEK_SCHED_LOG
+	bool "Log the scheduling sequence."
+	default y
+	help
+	  Log the scheduling sequence.
+
+config ANDROID_BY_PASS_MEMC
+       bool "Disable MEMC for Android Merlin3 temporary"
+       default n
+       help
+          Disable MEMC for Android merlin3 temporary
+
+config REALTEK_UART2RBUS_CONTROL
+	bool "Enable Realtek UART2RBUS control"
+	default y
+	help
+	  Enable Realtek UART2RBUS control
+
+config GPU_VOLTAGE_CONTROL
+    bool "Enable GPU VOLTAGE in DFS"
+    default n
+
+config REALTEK_MEMORY_MANAGEMENT
+        bool "Realtek memory management"
+        default y
+        help
+         Code added for Realtek memory management
+
+#Recovery kernel
+config RTK_KDRV_RECOVERY_KERNEL
+        bool "Build for android rescue kernel"
+        default n
+        help
+          Android rescue kernel for Realtek
+
+config RTK_ATF_BOOTING
+	bool "Use ATF Bring up normal linux"
+	default y
+        help
+          This option config trust Zone feature for normal OS
+
+
+config IMG_DEMOD_CARVED_OUT_ADDRESS
+       hex "notice, this carvedout not only for IxG's, but also for others."
+       default 0x15400000 
+       help
+	this base is to defined carved out,
+	and also used to setting hw remapping control.
+
+endmenu
+
+endif

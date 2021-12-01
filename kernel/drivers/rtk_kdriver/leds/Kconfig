@@ -1,0 +1,18 @@
+config RTK_KDRV_GPIO_LED
+    bool "RTK_KDRV_GPIO_LED"
+    depends on RTK_KDRV_LEDS
+    default y
+    help
+        RTK GPIO LED
+
+config RTK_KDRV_I2C_LED
+    bool "RTK_KDRV_I2C_LED"
+    default n
+    help
+        RTK GOOGLE VOICE i2c LED
+
+config RTK_KDRV_SERIAL_LED
+    bool "RTK_KDRV_SERIAL_LED"
+    default n
+    help
+        RTK GOOGLE VOICE SERIAL LED

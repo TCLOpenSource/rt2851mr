@@ -1,0 +1,78 @@
+linux/usb_ops_linux.c:891:		pskb->len = 0;
+linux/usb_ops_linux.c:1019:		tmpaddr = (SIZE_PTR)precvbuf->pskb->data;
+linux/usb_ops_linux.c:1025:	precvbuf->phead = precvbuf->pskb->head;
+linux/usb_ops_linux.c:1026:	precvbuf->pdata = precvbuf->pskb->data;
+linux/usb_ops_linux.c:1029:	precvbuf->pbuf = precvbuf->pskb->data;
+linux/os_intfs.c:1319:	/* skb->priority values from 256->263 are magic values to
+linux/os_intfs.c:1324:	if (skb->priority >= 256 && skb->priority <= 263)
+linux/os_intfs.c:1325:		return skb->priority - 256;
+linux/os_intfs.c:1327:	switch (skb->protocol) {
+linux/os_intfs.c:1351:	skb->priority = rtw_classify8021d(skb);
+linux/os_intfs.c:1354:		skb->priority = qos_acm(pmlmepriv->acm_mask, skb->priority);
+linux/os_intfs.c:1356:	return rtw_1d_to_queue[skb->priority];
+linux/os_intfs.c:1365:	u8 *pdata = skb->data;
+linux/rtw_cfgvendor.c:55:		truesize = skb->truesize;
+linux/rtw_cfgvendor.c:72:	unsigned int truesize = skb->truesize;
+linux/rtw_cfgvendor.c:95:		truesize = skb->truesize;
+linux/rtw_cfgvendor.c:112:	unsigned int truesize = skb->truesize;
+linux/recv_linux.c:85:		/*	8 is for skb->data 4 bytes alignment. */
+linux/recv_linux.c:305:			sub_skb->data = msdu;
+linux/recv_linux.c:306:			sub_skb->len = msdu_len;
+linux/recv_linux.c:314:	eth_type = RTW_GET_BE16(&sub_skb->data[6]);
+linux/recv_linux.c:316:	if (sub_skb->len >= 8
+linux/recv_linux.c:317:		&& ((_rtw_memcmp(sub_skb->data, rtw_rfc1042_header, SNAP_SIZE)
+linux/recv_linux.c:319:			|| _rtw_memcmp(sub_skb->data, rtw_bridge_tunnel_header, SNAP_SIZE))
+linux/recv_linux.c:329:		len = htons(sub_skb->len);
+linux/recv_linux.c:458:					/* skb->ip_summed = CHECKSUM_NONE; */
+linux/recv_linux.c:611:	skb->data = precv_frame->u.hdr.rx_data;
+linux/recv_linux.c:612:	skb->tail = precv_frame->u.hdr.rx_tail;
+linux/recv_linux.c:613:	skb->len = precv_frame->u.hdr.len;
+linux/recv_linux.c:618:	skb->dev = pmgnt_netdev;
+linux/recv_linux.c:619:	skb->ip_summed = CHECKSUM_NONE;
+linux/recv_linux.c:620:	skb->pkt_type = PACKET_OTHERHOST;
+linux/recv_linux.c:621:	/* skb->protocol = __constant_htons(0x0019); ETH_P_80211_RAW */
+linux/recv_linux.c:622:	skb->protocol = __constant_htons(0x0003); /*ETH_P_80211_RAW*/
+linux/recv_linux.c:624:	/* RTW_INFO("(1)data=0x%x, head=0x%x, tail=0x%x, mac_header=0x%x, len=%d\n", skb->data, skb->head, skb->tail, skb->mac_header, skb->len); */
+linux/recv_linux.c:626:	/* skb->mac.raw = skb->data; */
+linux/recv_linux.c:630:	_rtw_memset(skb->cb, 0, sizeof(skb->cb));
+linux/recv_linux.c:659:	skb->data = precv_frame->u.hdr.rx_data;
+linux/recv_linux.c:661:	skb->len = precv_frame->u.hdr.len;
+linux/recv_linux.c:662:	skb->ip_summed = CHECKSUM_NONE;
+linux/recv_linux.c:663:	skb->pkt_type = PACKET_OTHERHOST;
+linux/recv_linux.c:664:	skb->protocol = htons(0x0019); /* ETH_P_80211_RAW */
+linux/recv_linux.c:687:	skb->data = rframe->u.hdr.rx_data;
+linux/recv_linux.c:689:	skb->len = rframe->u.hdr.len;
+linux/ioctl_cfg80211.c:4364:		rtw_mstat_update(MSTAT_TYPE_SKB, MSTAT_ALLOC_SUCCESS, skb->truesize);
+linux/ioctl_cfg80211.c:4373:	if (unlikely(skb->len < sizeof(struct ieee80211_radiotap_header)))
+linux/ioctl_cfg80211.c:4376:	rtap_hdr = (struct ieee80211_radiotap_header *)skb->data;
+linux/ioctl_cfg80211.c:4380:	rtap_len = ieee80211_get_radiotap_len(skb->data);
+linux/ioctl_cfg80211.c:4381:	if (unlikely(skb->len < rtap_len))
+linux/ioctl_cfg80211.c:4392:	dot11_hdr = (struct rtw_ieee80211_hdr *)skb->data;
+linux/ioctl_cfg80211.c:4411:		pdata = (unsigned char *)skb->data;
+linux/ioctl_cfg80211.c:4434:		u8 *buf = skb->data;
+linux/ioctl_cfg80211.c:4435:		u32 len = skb->len;
+linux/xmit_linux.c:76:	if (skb->protocol == htons(ETH_P_IP)) {
+linux/xmit_linux.c:79:	} else if (skb->protocol == htons(ETH_P_IPV6)) {
+linux/xmit_linux.c:411:		if (_rtw_memcmp(psta->cmn.mac_addr, &skb->data[6], ETH_ALEN) == _TRUE
+linux/xmit_linux.c:424:			_rtw_memcpy(newskb->data, psta->cmn.mac_addr, ETH_ALEN);
+linux/xmit_linux.c:511:			nskb->next = NULL;
+linux/xmit_linux.c:512:			rtw_mstat_update( MSTAT_TYPE_SKB, MSTAT_ALLOC_SUCCESS, nskb->truesize);
+osdep_service.c:238:	/* skb = _rtw_zmalloc(sizeof(struct sk_buff)); */ /* for skb->len, etc. */
+osdep_service.c:246:	skb->head = (unsigned char *)data;
+osdep_service.c:247:	skb->data = (unsigned char *)data;
+osdep_service.c:248:	skb->tail = (unsigned char *)data;
+osdep_service.c:249:	skb->end = (unsigned char *)data + size;
+osdep_service.c:250:	skb->len = 0;
+osdep_service.c:251:	/* printf("%s()-%d: skb=%p, skb->head = %p\n", __FUNCTION__, __LINE__, skb, skb->head); */
+osdep_service.c:264:	/* printf("%s()-%d: skb->head = %p\n", __FUNCTION__, __LINE__, skb->head); */
+osdep_service.c:265:	if (skb->head)
+osdep_service.c:266:		_rtw_mfree(skb->head, 0);
+osdep_service.c:333:	skb->dev = ndev;
+osdep_service.c:347:	skb->dev = ndev;
+osdep_service.c:680:		truesize = skb->truesize;
+osdep_service.c:696:	unsigned int truesize = skb->truesize;
+osdep_service.c:713:	unsigned int truesize = skb->truesize;
+osdep_service.c:735:	unsigned int truesize = skb->truesize;
+osdep_service.c:757:	unsigned int truesize = skb->truesize;
+osdep_service.c:777:	unsigned int truesize = skb->truesize;
+osdep_service.c:797:	unsigned int truesize = skb->truesize;

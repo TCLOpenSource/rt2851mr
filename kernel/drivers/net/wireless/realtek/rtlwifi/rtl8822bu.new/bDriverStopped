@@ -1,0 +1,732 @@
+core/rtw_rson.c:69:	/*Aries  todo.  if pdvobj->rson_data.ver == 1 */
+core/rtw_rson.c:70:	dvobj->rson_data.ver = RTW_RSON_VER;
+core/rtw_rson.c:71:	dvobj->rson_data.id = CONFIG_RTW_REPEATER_SON_ID;
+core/rtw_rson.c:73:	dvobj->rson_data.hopcnt = RTW_RSON_HC_ROOT;
+core/rtw_rson.c:74:	dvobj->rson_data.connectible = RTW_RSON_ALLOWCONNECT;
+core/rtw_rson.c:76:	dvobj->rson_data.hopcnt = RTW_RSON_HC_NOTREADY;
+core/rtw_rson.c:77:	dvobj->rson_data.connectible = RTW_RSON_DENYCONNECT;
+core/rtw_rson.c:79:	dvobj->rson_data.loading = 0;
+core/rtw_rson.c:80:	_rtw_memset(dvobj->rson_data.res, 0xAA, sizeof(dvobj->rson_data.res));
+core/rtw_rson.c:88:		pdvobj->rson_data.ver,
+core/rtw_rson.c:89:		pdvobj->rson_data.id,
+core/rtw_rson.c:90:		pdvobj->rson_data.hopcnt,
+core/rtw_rson.c:91:		pdvobj->rson_data.connectible ? "connectable":"unconnectable",
+core/rtw_rson.c:92:		pdvobj->rson_data.loading,
+core/rtw_rson.c:93:		pdvobj->rson_data.res);
+core/rtw_rson.c:122:		pdvobj->rson_data.ver = rtw_atoi(value);
+core/rtw_rson.c:124:		num = sscanf(value, "%08x",   &(pdvobj->rson_data.id));
+core/rtw_rson.c:126:		num = sscanf(value, "%hhu", &(pdvobj->rson_data.hopcnt));
+core/rtw_rson.c:128:		num = sscanf(value, "%hhu", &(pdvobj->rson_data.connectible));
+core/rtw_rson.c:130:		num = sscanf(value, "%hhu", &(pdvobj->rson_data.loading));
+core/rtw_rson.c:132:		str2hexbuf(value, pdvobj->rson_data.res, 16);
+core/rtw_rson.c:256:	*ptr++ = ie_len = sizeof(RTW_RSON_OUI)+sizeof(pdvobj->rson_data);
+core/rtw_rson.c:259:	*ptr++ = pdvobj->rson_data.ver;
+core/rtw_rson.c:260:	*(s32 *)ptr = cpu_to_le32(pdvobj->rson_data.id);
+core/rtw_rson.c:261:	ptr = ptr + sizeof(pdvobj->rson_data.id);
+core/rtw_rson.c:262:	*ptr++ = pdvobj->rson_data.hopcnt;
+core/rtw_rson.c:263:	*ptr++ = pdvobj->rson_data.connectible;
+core/rtw_rson.c:264:	*ptr++ = pdvobj->rson_data.loading;
+core/rtw_rson.c:265:	_rtw_memcpy(ptr, pdvobj->rson_data.res, sizeof(pdvobj->rson_data.res));
+core/rtw_rson.c:283:	pdvobj->rson_data.ver = RTW_RSON_VER;
+core/rtw_rson.c:284:	pdvobj->rson_data.id = CONFIG_RTW_REPEATER_SON_ID;
+core/rtw_rson.c:285:	pdvobj->rson_data.hopcnt = RTW_RSON_HC_NOTREADY;
+core/rtw_rson.c:286:	pdvobj->rson_data.connectible = RTW_RSON_DENYCONNECT;
+core/rtw_rson.c:287:	pdvobj->rson_data.loading = 0;
+core/rtw_rson.c:309:	pdvobj->rson_data.ver = RTW_RSON_VER;
+core/rtw_rson.c:310:	pdvobj->rson_data.id = rson_data.id;
+core/rtw_rson.c:311:	pdvobj->rson_data.hopcnt = rson_data.hopcnt + 1;
+core/rtw_rson.c:312:	pdvobj->rson_data.connectible = RTW_RSON_ALLOWCONNECT;
+core/rtw_rson.c:313:	pdvobj->rson_data.loading = 0;
+core/rtw_rson.c:461:	else if (rson_target.id != pdvobj->rson_data.id) {
+core/rtw_rson.c:464:				__func__, rson_target.id, pdvobj->rson_data.id);
+core/rtw_rson.c:465:	} else if ((pdvobj->rson_data.hopcnt == RTW_RSON_HC_NOTREADY)
+core/rtw_rson.c:466:		|| (pdvobj->rson_data.connectible == RTW_RSON_DENYCONNECT)) {
+core/rtw_rson.c:469:				__func__, pdvobj->rson_data.hopcnt, pdvobj->rson_data.connectible);
+core/rtw_xmit.c:61:	_rtw_spinlock_init(&dvobj->xmit_block_lock);
+core/rtw_xmit.c:62:	dvobj->xmit_block = XMIT_BLOCK_NONE;
+core/rtw_xmit.c:69:	_rtw_spinlock_free(&dvobj->xmit_block_lock);
+core/rtw_xmit.c:575:			for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_xmit.c:576:				if (!dvobj->padapters[i])
+core/rtw_xmit.c:578:				rtw_get_adapter_tx_rate_bmp_by_bw(dvobj->padapters[i], bw, &tmp_cck_ofdm, &tmp_ht, &tmp_vht);
+core/rtw_xmit.c:5444:	RTW_PRINT_SEL(sel, "[XMIT-BLOCK] xmit_block :0x%02x\n", dvobj->xmit_block);
+core/rtw_xmit.c:5445:	if (dvobj->xmit_block & XMIT_BLOCK_REDLMEM)
+core/rtw_xmit.c:5447:	if (dvobj->xmit_block & XMIT_BLOCK_SUSPEND)
+core/rtw_xmit.c:5449:	if (dvobj->xmit_block == XMIT_BLOCK_NONE)
+core/rtw_xmit.c:5467:	_enter_critical_bh(&dvobj->xmit_block_lock, &irqL);
+core/rtw_xmit.c:5468:	dvobj->xmit_block |= reason;
+core/rtw_xmit.c:5469:	_exit_critical_bh(&dvobj->xmit_block_lock, &irqL);
+core/rtw_xmit.c:5481:	_enter_critical_bh(&dvobj->xmit_block_lock, &irqL);
+core/rtw_xmit.c:5482:	dvobj->xmit_block &= ~reason;
+core/rtw_xmit.c:5483:	_exit_critical_bh(&dvobj->xmit_block_lock, &irqL);
+core/rtw_xmit.c:5496:	return ((dvobj->xmit_block) ? _TRUE : _FALSE);
+core/rtw_xmit.c:5527:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_xmit.c:5528:		iface = dvobj->padapters[i];
+core/rtw_wlan_util.c:421:	if (dvobj->oper_channel != ch) {
+core/rtw_wlan_util.c:422:		dvobj->on_oper_ch_time = rtw_get_current_time();
+core/rtw_wlan_util.c:427:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_wlan_util.c:428:			_adapter *iface = dvobj->padapters[i];
+core/rtw_wlan_util.c:445:	dvobj->oper_channel = ch;
+core/rtw_wlan_util.c:715:	struct macid_ctl_t *macid_ctl = &padapter->dvobj->macid_ctl;
+core/rtw_wlan_util.c:752:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:760:	_rtw_memset(dvobj->cam_cache, 0, sizeof(struct sec_cam_ent) * SEC_CAM_ENT_NUM_SW_LIMIT);
+core/rtw_wlan_util.c:791:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:796:	_rtw_memcpy(&cache, &dvobj->cam_cache[id], sizeof(struct sec_cam_ent));
+core/rtw_wlan_util.c:804:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:809:	dvobj->cam_cache[id].ctrl = ctrl;
+core/rtw_wlan_util.c:810:	_rtw_memcpy(dvobj->cam_cache[id].mac, mac, ETH_ALEN);
+core/rtw_wlan_util.c:811:	_rtw_memcpy(dvobj->cam_cache[id].key, key, 16);
+core/rtw_wlan_util.c:819:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:824:	_rtw_memset(&(dvobj->cam_cache[id]), 0, sizeof(struct sec_cam_ent));
+core/rtw_wlan_util.c:832:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:842:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:850:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:861:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:869:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:880:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1051:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1072:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1083:	ret = (dvobj->cam_cache[cam_id].ctrl & BIT6) ? _TRUE : _FALSE;
+core/rtw_wlan_util.c:1092:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1108:	if (addr && _rtw_memcmp(dvobj->cam_cache[id].mac, addr, ETH_ALEN) == _FALSE)
+core/rtw_wlan_util.c:1110:	if (kid >= 0 && kid != (dvobj->cam_cache[id].ctrl & 0x03))
+core/rtw_wlan_util.c:1124:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1150:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1164:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1219:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1283:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1297:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1312:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:1334:		_rtw_memcpy(&cache_a, &dvobj->cam_cache[cam_id_a], sizeof(struct sec_cam_ent));
+core/rtw_wlan_util.c:1337:		_rtw_memcpy(&cache_b, &dvobj->cam_cache[cam_id_b], sizeof(struct sec_cam_ent));
+core/rtw_wlan_util.c:1366:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_wlan_util.c:4089:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_wlan_util.c:4090:		if (get_hw_port(dvobj->padapters[i]) == HW_PORT0)
+core/rtw_wlan_util.c:4094:	if (i < 0 || i >= dvobj->iface_nums)
+core/rtw_wlan_util.c:4097:		port0_iface = dvobj->padapters[i];
+core/rtw_wlan_util.c:4107:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_wlan_util.c:4108:		if (dvobj->padapters[i]->registered == 0)
+core/rtw_wlan_util.c:4112:	if (i < dvobj->iface_nums)
+core/rtw_wlan_util.c:4113:		adapter = dvobj->padapters[i];
+core/rtw_wlan_util.c:4123:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_wlan_util.c:4124:		if (_rtw_memcmp(dvobj->padapters[i]->mac_addr, addr, ETH_ALEN) == _TRUE)
+core/rtw_wlan_util.c:4128:	if (i < dvobj->iface_nums)
+core/rtw_wlan_util.c:4129:		adapter = dvobj->padapters[i];
+core/rtw_ap.c:1542:		if (!(dvobj->vap_map & BIT(vap_id)))
+core/rtw_ap.c:1547:		dvobj->vap_map |= BIT(vap_id);
+core/rtw_ap.c:1558:	dvobj->vap_map &= ~ BIT(vap_id);
+core/rtw_ap.c:1569:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:1570:		iface = dvobj->padapters[i];
+core/rtw_ap.c:1679:	for (i = 0; i < pdvobj->iface_nums; i++) {
+core/rtw_ap.c:1680:		if (!(parm->ifbmp & BIT(i)) || !pdvobj->padapters[i])
+core/rtw_ap.c:1684:		_rtw_memcpy(&(pdvobj->padapters[i]->mlmepriv.cur_network.network)
+core/rtw_ap.c:1685:			, &(pdvobj->padapters[i]->mlmeextpriv.mlmext_info.network)
+core/rtw_ap.c:1686:			, pdvobj->padapters[i]->mlmeextpriv.mlmext_info.network.Length);
+core/rtw_ap.c:1688:		rtw_start_bss_hdl_after_chbw_decided(pdvobj->padapters[i]);
+core/rtw_ap.c:1692:			rtw_set_hw_wmm_param(pdvobj->padapters[i]);
+core/rtw_ap.c:1738:	for (i = 0; i < pdvobj->iface_nums; i++) {
+core/rtw_ap.c:1739:		if (!(ifbmp_ch_changed & BIT(i)) || !pdvobj->padapters[i])
+core/rtw_ap.c:1743:		if (MLME_IS_GO(pdvobj->padapters[i])
+core/rtw_ap.c:1744:			|| MLME_IS_MESH(pdvobj->padapters[i])
+core/rtw_ap.c:1749:			ht_option = pdvobj->padapters[i]->mlmepriv.htpriv.ht_option;
+core/rtw_ap.c:1752:			rtw_cfg80211_ch_switch_notify(pdvobj->padapters[i]
+core/rtw_ap.c:1753:				, pdvobj->padapters[i]->mlmeextpriv.cur_channel
+core/rtw_ap.c:1754:				, pdvobj->padapters[i]->mlmeextpriv.cur_bwmode
+core/rtw_ap.c:1755:				, pdvobj->padapters[i]->mlmeextpriv.cur_ch_offset
+core/rtw_ap.c:1770:	for (i = 0; i < pdvobj->iface_nums; i++) {
+core/rtw_ap.c:1773:		if (!(parm->ifbmp & BIT(i)) || !pdvobj->padapters[i])
+core/rtw_ap.c:1777:		if (pdvobj->padapters[i]->mlmeextpriv.bstart_bss != _TRUE)
+core/rtw_ap.c:1780:		mlme = &(pdvobj->padapters[i]->mlmepriv);
+core/rtw_ap.c:1787:			update_beacon(pdvobj->padapters[i], _HT_ADD_INFO_IE_, NULL, _FALSE);
+core/rtw_ap.c:1791:		update_beacon(pdvobj->padapters[i], _TIM_IE_, NULL, _FALSE);
+core/rtw_ap.c:1800:		_enter_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:1805:			rtw_list_insert_tail(&padapter->list, get_list_head(&pdvobj->ap_if_q));
+core/rtw_ap.c:1806:			pdvobj->nr_ap_if++;
+core/rtw_ap.c:1807:			pdvobj->inter_bcn_space = DEFAULT_BCN_INTERVAL / pdvobj->nr_ap_if;
+core/rtw_ap.c:1809:		_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:1812:		rtw_ap_set_mbid_num(padapter, pdvobj->nr_ap_if);
+core/rtw_ap.c:1813:		rtw_hal_set_hwreg(padapter, HW_VAR_BEACON_INTERVAL, (u8 *)(&pdvobj->inter_bcn_space));
+core/rtw_ap.c:1832:		if (pdvobj->nr_ap_if == 1
+core/rtw_ap.c:1836:			_set_timer(&pdvobj->txbcn_timer, bcn_interval);
+core/rtw_ap.c:1839:		for (i = 0; i < pdvobj->iface_nums; i++) {
+core/rtw_ap.c:1840:			if (!(parm->ifbmp & BIT(i)) || !pdvobj->padapters[i])
+core/rtw_ap.c:1843:			if (send_beacon(pdvobj->padapters[i]) == _FAIL)
+core/rtw_ap.c:1844:				RTW_INFO(ADPT_FMT" issue_beacon, fail!\n", ADPT_ARG(pdvobj->padapters[i]));
+core/rtw_ap.c:4214:		_enter_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4215:		pdvobj->nr_ap_if--;
+core/rtw_ap.c:4216:		if (pdvobj->nr_ap_if > 0)
+core/rtw_ap.c:4217:			pdvobj->inter_bcn_space = DEFAULT_BCN_INTERVAL / pdvobj->nr_ap_if;
+core/rtw_ap.c:4219:			pdvobj->inter_bcn_space = DEFAULT_BCN_INTERVAL;
+core/rtw_ap.c:4226:		_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4232:		rtw_hal_set_hwreg(padapter, HW_VAR_BEACON_INTERVAL, (u8 *)(&pdvobj->inter_bcn_space));
+core/rtw_ap.c:4234:		if (pdvobj->nr_ap_if == 0)
+core/rtw_ap.c:4235:			_cancel_timer_ex(&pdvobj->txbcn_timer);
+core/rtw_ap.c:4391:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4392:		if (!(ifbmp & BIT(i)) || !dvobj->padapters)
+core/rtw_ap.c:4395:		iface = dvobj->padapters[i];
+core/rtw_ap.c:4411:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4412:		if (!(ifbmp & BIT(i)) || !dvobj->padapters)
+core/rtw_ap.c:4415:		iface = dvobj->padapters[i];
+core/rtw_ap.c:4579:	for (i = 0; i < dvobj->iface_nums; i++)
+core/rtw_ap.c:4580:		if ((ifbmp & BIT(i)) && dvobj->padapters)
+core/rtw_ap.c:4581:			if (!MLME_IS_MESH(dvobj->padapters[i]))
+core/rtw_ap.c:4583:	ifbmp_all_mesh = i >= dvobj->iface_nums ? 1 : 0;
+core/rtw_ap.c:4594:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4595:		if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4597:		iface = dvobj->padapters[i];
+core/rtw_ap.c:4665:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4666:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4668:			iface = dvobj->padapters[i];
+core/rtw_ap.c:4710:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4711:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4713:			iface = dvobj->padapters[i];
+core/rtw_ap.c:4768:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4769:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4818:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4819:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4821:			iface = dvobj->padapters[i];
+core/rtw_ap.c:4853:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_ap.c:4854:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+core/rtw_ap.c:4856:			iface = dvobj->padapters[i];
+core/rtw_ap.c:4954:	_enter_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4955:	if (rtw_is_list_empty(&pdvobj->ap_if_q.queue) || (pdvobj->nr_ap_if == 0)) {
+core/rtw_ap.c:4956:		RTW_INFO("[%s] ERROR: ap_if_q is empty!or nr_ap = %d\n", __func__, pdvobj->nr_ap_if);
+core/rtw_ap.c:4957:		_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4960:		padapter = LIST_CONTAINOR(get_next(&(pdvobj->ap_if_q.queue)), struct _ADAPTER, list);
+core/rtw_ap.c:4961:	_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4986:	_enter_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:4988:	nr_vap = (pdvobj->nr_ap_if - 1);
+core/rtw_ap.c:4990:		inter_bcn_space_us = pdvobj->inter_bcn_space * NET80211_TU_TO_US; /* beacon_interval / (nr_vap+1); */
+core/rtw_ap.c:4999:		phead = get_list_head(&pdvobj->ap_if_q);
+core/rtw_ap.c:5011:		if ((NULL == padapter) || (i > pdvobj->nr_ap_if)) {
+core/rtw_ap.c:5013:				__func__, pdvobj->nr_ap_if, padapter, bcn_idx, i);
+core/rtw_ap.c:5014:			_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:5040:	_exit_critical_bh(&pdvobj->ap_if_q.lock, &irqL);
+core/rtw_ap.c:5046:	_set_timer(&pdvobj->txbcn_timer, txbcn_timer_ms);
+core/rtw_ap.c:5085:	_adapter *padapter = pdvobj->padapters[0];
+core/rtw_p2p.c:904:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_p2p.c:905:			iface = dvobj->padapters[i];
+core/rtw_p2p.c:3290:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_p2p.c:3291:		iface = dvobj->padapters[i];
+core/rtw_debug.c:447:	RTW_PRINT_SEL(sel, "[AP] vap_map:0x%02x\n", dvobj->vap_map);
+core/rtw_debug.c:450:	RTW_PRINT_SEL(sel, "[AP] p0 tsf sync port = %d\n", dvobj->p0_tsf.sync_port);
+core/rtw_debug.c:451:	RTW_PRINT_SEL(sel, "[AP] p0 tsf timer offset = %d\n", dvobj->p0_tsf.offset);
+core/rtw_debug.c:454:	RTW_PRINT_SEL(sel, "[CLT] clt_num = %d\n", dvobj->clt_port.num);
+core/rtw_debug.c:455:	RTW_PRINT_SEL(sel, "[CLT] clt_map = 0x%02x\n", dvobj->clt_port.bmp);
+core/rtw_debug.c:458:	RTW_PRINT_SEL(sel, "[MI] default port id:%d\n\n", dvobj->dft.port_id);
+core/rtw_debug.c:522:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_debug.c:523:		iface = dvobj->padapters[i];
+core/rtw_debug.c:599:		, dvobj->oper_channel
+core/rtw_debug.c:600:		, dvobj->oper_bwmode
+core/rtw_debug.c:601:		, dvobj->oper_ch_offset
+core/rtw_debug.c:682:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_debug.c:697:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+core/rtw_debug.c:703:		if (dvobj->cam_cache[i].ctrl != 0)
+core/rtw_debug.c:704:			dump_sec_cam_ent(sel, &dvobj->cam_cache[i], i);
+core/rtw_debug.c:2110:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+core/rtw_debug.c:2149:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+core/rtw_debug.c:2442:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+core/rtw_debug.c:5745:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_debug.c:5746:			iface = dvobj->padapters[i];
+core/rtw_debug.c:5842:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_debug.c:5843:			iface = dvobj->padapters[i];
+core/rtw_debug.c:6268:	RTW_PRINT_SEL(m, "FW BCN offload:%s\n", dvobj->fw_bcn_offload ? "enable" : "disable");
+core/rtw_debug.c:6269:	RTW_PRINT_SEL(m, "FW TBTT RPT:%x\n", dvobj->vap_tbtt_rpt_map);
+core/rtw_mlme_ext.c:11853:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:11854:		if (get_hw_port(dvobj->padapters[i]) == HW_PORT0) {
+core/rtw_mlme_ext.c:11855:			if_port0 = dvobj->padapters[i];
+core/rtw_mlme_ext.c:11857:		} else if (get_hw_port(dvobj->padapters[i]) == HW_PORT1) {
+core/rtw_mlme_ext.c:11858:			if_port1 = dvobj->padapters[i];
+core/rtw_mlme_ext.c:14377:			for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:14378:				if (rtw_linked_check(dvobj->padapters[i]))
+core/rtw_mlme_ext.c:14510:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:14511:			iface = dvobj->padapters[i];
+core/rtw_mlme_ext.c:14561:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:14562:		iface = dvobj->padapters[i];
+core/rtw_mlme_ext.c:14760:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+core/rtw_mlme_ext.c:15795:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:15796:			iface = dvobj->padapters[i];
+core/rtw_mlme_ext.c:15865:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:15866:			iface = dvobj->padapters[i];
+core/rtw_mlme_ext.c:15977:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:15978:			iface = dvobj->padapters[i];
+core/rtw_mlme_ext.c:16011:			for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mlme_ext.c:16012:				iface = dvobj->padapters[i];
+Binary file core/rtw_mi.o matches
+core/rtw_cmd.c:3113:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_cmd.c:3114:		if (rtw_linked_check(dvobj->padapters[i]))
+core/rtw_cmd.c:3497:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_cmd.c:3498:			iface = dvobj->padapters[i];
+core/rtw_cmd.c:3530:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_cmd.c:3531:			iface = dvobj->padapters[i];
+core/rtw_cmd.c:3631:	if (dvobj->oper_channel != rfctl->radar_detect_ch
+core/rtw_mlme.c:2313:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+core/rtw_mlme.c:2759:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+core/rtw_mlme.c:3328:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+core/rtw_mlme.c:3369:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+core/rtw_mlme.c:3457:	_set_timer(&pdvobj->dynamic_chk_timer, 2000);
+core/rtw_tdls.c:3241:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_tdls.c:3242:		iface = dvobj->padapters[i];
+core/rtw_tdls.c:3271:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_tdls.c:3272:		iface = dvobj->padapters[i];
+core/rtw_io.c:472:	value = ATOMIC_INC_RETURN(&dvobj->continual_io_error);
+core/rtw_io.c:487:	ATOMIC_SET(&dvobj->continual_io_error, 0);
+core/rtw_pwrctrl.c:210:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_pwrctrl.c:211:		iface = dvobj->padapters[i];
+core/rtw_pwrctrl.c:1083:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_pwrctrl.c:1084:		if (PS_RDY_CHECK(dvobj->padapters[i]) == _FALSE)
+core/rtw_pwrctrl.c:1141:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+core/rtw_pwrctrl.c:1339:		for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_pwrctrl.c:1340:			_adapter *iface = dvobj->padapters[i];
+core/rtw_pwrctrl.c:1903:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_pwrctrl.c:1904:		iface = dvobj->padapters[i];
+core/rtw_pwrctrl.c:1961:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_pwrctrl.c:1962:		iface = dvobj->padapters[i];
+core/rtw_mi.c:23:	struct mi_state *iface_state = &dvobj->iface_state;
+core/rtw_mi.c:39:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:40:		iface = dvobj->padapters[i];
+core/rtw_mi.c:127:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:128:		iface = dvobj->padapters[i];
+core/rtw_mi.c:194:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:195:		iface = dvobj->padapters[i];
+core/rtw_mi.c:321:	RTW_PRINT_SEL(sel, "== dvobj-iface_state ==\n");
+core/rtw_mi.c:368:	struct mi_state *iface_state = &dvobj->iface_state;
+core/rtw_mi.c:400:	struct mi_state *iface_state = &dvobj->iface_state;
+core/rtw_mi.c:484:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:485:		iface = dvobj->padapters[i];
+core/rtw_mi.c:507:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:508:		iface = dvobj->padapters[i];
+core/rtw_mi.c:654:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:655:		iface = dvobj->padapters[i];
+core/rtw_mi.c:682:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:683:		iface = dvobj->padapters[i];
+core/rtw_mi.c:771:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:772:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1062:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1063:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1088:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1089:		if (dvobj->padapters[i]) {
+core/rtw_mi.c:1090:			if ((exclude_self) && (dvobj->padapters[i] == padapter))
+core/rtw_mi.c:1092:			dvobj->padapters[i] = NULL;
+core/rtw_mi.c:1277:	return  dvobj->padapters[iface_id];
+core/rtw_mi.c:1287:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1288:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1307:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1308:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1426:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1427:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1456:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1457:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1477:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1478:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1496:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1497:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1518:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1519:		iface = dvobj->padapters[i];
+core/rtw_mi.c:1541:	for (i = 0; i < dvobj->iface_nums; i++) {
+core/rtw_mi.c:1542:		if (check_fwstate(&(dvobj->padapters[i]->mlmepriv), WIFI_ASOC_STATE))
+hal/hal_dm.c:390:	odm_cmn_info_hook(pDM_Odm, ODM_CMNINFO_TX_UNI, &(dvobj->traffic_stat.tx_bytes));
+hal/hal_dm.c:391:	odm_cmn_info_hook(pDM_Odm, ODM_CMNINFO_RX_UNI, &(dvobj->traffic_stat.rx_bytes));
+hal/hal_dm.c:405:	odm_cmn_info_hook(pDM_Odm, ODM_CMNINFO_TX_TP, &(dvobj->traffic_stat.cur_tx_tp));
+hal/hal_dm.c:406:	odm_cmn_info_hook(pDM_Odm, ODM_CMNINFO_RX_TP, &(dvobj->traffic_stat.cur_rx_tp));
+hal/hal_dm.c:413:	odm_cmn_info_hook(pDM_Odm, ODM_CMNINFO_HUBUSBMODE, &(dvobj->usb_speed));
+hal/hal_dm.c:515:		cur_tx_bytes = dvobj->traffic_stat.cur_tx_bytes;
+hal/hal_dm.c:516:		cur_rx_bytes = dvobj->traffic_stat.cur_rx_bytes;
+hal/hal_dm.c:1179:	if (is_linked && (dvobj->traffic_stat.cur_tx_tp > 2 || dvobj->traffic_stat.cur_rx_tp > 2))
+hal/hal_dm.c:1199:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_dm.c:1200:		iface = dvobj->padapters[i];
+hal/led/hal_led.c:30:	for (i = 0; i < dvobj->iface_nums; i++)
+hal/hal_com.c:79:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+hal/hal_com.c:96:		RTW_INFO("[cam_cache KEY] - Key-id:%d "KEY_FMT"\n", key_id, KEY_ARG(&dvobj->cam_cache[key_id].key));
+hal/hal_com.c:1170:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:1171:		iface = dvobj->padapters[i];
+hal/hal_com.c:1221:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:1222:		iface = dvobj->padapters[i];
+hal/hal_com.c:1239:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:1240:		iface = dvobj->padapters[i];
+hal/hal_com.c:1689:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1691:	if (dvobj->customer_str_sctx != NULL) {
+hal/hal_com.c:1692:		if (dvobj->customer_str_sctx->status != RTW_SCTX_SUBMITTED)
+hal/hal_com.c:1693:			RTW_WARN("%s invalid sctx.status:%d\n", __func__, dvobj->customer_str_sctx->status);
+hal/hal_com.c:1694:		_rtw_memcpy(dvobj->customer_str,  C2H_CUSTOMER_STR_RPT_BYTE0(data), CUSTOMER_STR_RPT_LEN);
+hal/hal_com.c:1695:		dvobj->customer_str_sctx->status = RTX_SCTX_CSTR_WAIT_RPT2;
+hal/hal_com.c:1699:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1721:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1723:	if (dvobj->customer_str_sctx != NULL) {
+hal/hal_com.c:1724:		if (dvobj->customer_str_sctx->status != RTX_SCTX_CSTR_WAIT_RPT2)
+hal/hal_com.c:1726:		_rtw_memcpy(dvobj->customer_str + CUSTOMER_STR_RPT_LEN,  C2H_CUSTOMER_STR_RPT_2_BYTE8(data), CUSTOMER_STR_RPT_2_LEN);
+hal/hal_com.c:1727:		rtw_sctx_done(&dvobj->customer_str_sctx);
+hal/hal_com.c:1731:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1746:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1747:	if (dvobj->customer_str_sctx != NULL)
+hal/hal_com.c:1751:		dvobj->customer_str_sctx = &sctx;
+hal/hal_com.c:1753:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1763:		_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1764:		dvobj->customer_str_sctx = NULL;
+hal/hal_com.c:1765:		_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1772:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1773:	dvobj->customer_str_sctx = NULL;
+hal/hal_com.c:1775:		_rtw_memcpy(cs, dvobj->customer_str, RTW_CUSTOMER_STR_LEN);
+hal/hal_com.c:1778:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1829:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1830:	if (dvobj->customer_str_sctx != NULL)
+hal/hal_com.c:1834:		dvobj->customer_str_sctx = &sctx;
+hal/hal_com.c:1836:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1846:		_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1847:		dvobj->customer_str_sctx = NULL;
+hal/hal_com.c:1848:		_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1855:		_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1856:		dvobj->customer_str_sctx = NULL;
+hal/hal_com.c:1857:		_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1864:	_enter_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:1865:	dvobj->customer_str_sctx = NULL;
+hal/hal_com.c:1867:		if (_rtw_memcmp(cs, dvobj->customer_str, RTW_CUSTOMER_STR_LEN) != _TRUE) {
+hal/hal_com.c:1870:			RTW_INFO_DUMP("read back: ", dvobj->customer_str, RTW_CUSTOMER_STR_LEN);
+hal/hal_com.c:1875:	_exit_critical_mutex(&dvobj->customer_str_mutex, NULL);
+hal/hal_com.c:2475:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2480:	_rtw_memset(&dvobj->mbid_cam_cache, 0, sizeof(dvobj->mbid_cam_cache));
+hal/hal_com.c:2485:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2494:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2498:	_rtw_memset(&dvobj->mbid_cam_cache, 0, sizeof(dvobj->mbid_cam_cache));
+hal/hal_com.c:2510:		if (mac_addr && _rtw_memcmp(dvobj->mbid_cam_cache[i].mac_addr, mac_addr, ETH_ALEN) == _TRUE) {
+hal/hal_com.c:2526:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2541:		if (iface_id == dvobj->mbid_cam_cache[i].iface_id) {
+hal/hal_com.c:2548:			__func__, iface_id, MAC_ARG(dvobj->mbid_cam_cache[cam_id].mac_addr), cam_id);
+hal/hal_com.c:2558:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2572:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2589:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2614:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2634:		mbid_cam_cache_init(adapter, &dvobj->mbid_cam_cache[cam_id], mac_addr);
+hal/hal_com.c:2654:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2659:		mbid_cam_cache_init(adapter, &dvobj->mbid_cam_cache[entry_id], mac_addr);
+hal/hal_com.c:2671:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2684:			mbid_cam_cache_init(adapter, &dvobj->mbid_cam_cache[camid], mac_addr);
+hal/hal_com.c:2707:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2714:	mbid_cam_cache_clr(&dvobj->mbid_cam_cache[mbss_canid]);
+hal/hal_com.c:2727:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2739:			iface_id = dvobj->mbid_cam_cache[i].iface_id;
+hal/hal_com.c:2741:			_RTW_PRINT_SEL(sel, "MAC Addr:"MAC_FMT"\t", MAC_ARG(dvobj->mbid_cam_cache[i].mac_addr));
+hal/hal_com.c:2743:			iface = dvobj->padapters[iface_id];
+hal/hal_com.c:2802:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2847:	struct mbid_cam_ctl_t *mbid_cam_ctl = &dvobj->mbid_cam_ctl;
+hal/hal_com.c:2855:			write_mbssid_cam(adapter, i, dvobj->mbid_cam_cache[i].mac_addr);
+hal/hal_com.c:2856:			RTW_INFO("%s - cam_id:%d => mac:"MAC_FMT"\n", __func__, i, MAC_ARG(dvobj->mbid_cam_cache[i].mac_addr));
+hal/hal_com.c:2890:	dvobj->vap_tbtt_rpt_map = tbtt_rpt_map;
+hal/hal_com.c:2891:	dvobj->fw_bcn_offload = fw_bcn_en;
+hal/hal_com.c:2892:	RTW_INFO("[FW BCN] Offload : %s\n", (dvobj->fw_bcn_offload) ? "EN" : "DIS");
+hal/hal_com.c:2893:	RTW_INFO("[FW BCN] TBTT RPT map : 0x%02x\n", dvobj->vap_tbtt_rpt_map);
+hal/hal_com.c:2909:		if (dvobj->vap_map & BIT(vap_id))
+hal/hal_com.c:2919:	if (dvobj->vap_map & BIT(0))
+hal/hal_com.c:2921:	if (dvobj->vap_map & BIT(1))
+hal/hal_com.c:2924:	if (dvobj->vap_map & BIT(2))
+hal/hal_com.c:2927:	if (dvobj->vap_map & BIT(3))
+hal/hal_com.c:2930:	if (dvobj->vap_map & BIT(4))
+hal/hal_com.c:2935:		RTW_INFO("[BCN_LOC] vap_map : 0x%02x\n", dvobj->vap_map);
+hal/hal_com.c:3391:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:3392:		iface = dvobj->padapters[i];
+hal/hal_com.c:3416:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:3417:		iface = dvobj->padapters[i];
+hal/hal_com.c:3444:	if (dvobj->periodic_tsf_update_etime) {
+hal/hal_com.c:3445:		if (rtw_time_after(rtw_get_current_time(), dvobj->periodic_tsf_update_etime)) {
+hal/hal_com.c:3447:			dvobj->periodic_tsf_update_etime = 0;
+hal/hal_com.c:3453:	if (dvobj->rf_ctl.offch_state != OFFCHS_NONE)
+hal/hal_com.c:3460:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:3461:		iface = dvobj->padapters[i];
+hal/hal_com.c:3480:	dvobj->periodic_tsf_update_etime = rtw_get_current_time() + rtw_ms_to_systime(restore_ms);
+hal/hal_com.c:3481:	if (!dvobj->periodic_tsf_update_etime)
+hal/hal_com.c:3482:		dvobj->periodic_tsf_update_etime++;
+hal/hal_com.c:3487:	_set_timer(&dvobj->periodic_tsf_update_end_timer, restore_ms);
+hal/hal_com.c:3879:		iface = dvobj->padapters[IFACE_ID1];
+hal/hal_com.c:3881:		iface = dvobj->padapters[IFACE_ID0];
+hal/hal_com.c:3983:	if ((dvobj->dft.port_id == port_id) && (dvobj->dft.mac_id == mac_id))
+hal/hal_com.c:3994:	dvobj->dft.port_id = port_id;
+hal/hal_com.c:3995:	dvobj->dft.mac_id = mac_id;
+hal/hal_com.c:4046:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:4047:		iface = dvobj->padapters[i];
+hal/hal_com.c:4289:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+hal/hal_com.c:5014:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+hal/hal_com.c:5061:			_rtw_memcpy(&dvobj->cam_cache[gtk_id].key,
+hal/hal_com.c:10083:			struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+hal/hal_com.c:10132:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:10133:		iface = dvobj->padapters[i];
+hal/hal_com.c:10151:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:10152:		iface = dvobj->padapters[i];
+hal/hal_com.c:10958:	if (benable && dvobj->p0_tsf.sync_port != MAX_HW_PORT && dvobj->p0_tsf.sync_port == hw_port) {
+hal/hal_com.c:10960:			FUNC_ADPT_ARG(adapter), dvobj->p0_tsf.sync_port);
+hal/hal_com.c:10965:	if (!benable && dvobj->p0_tsf.sync_port == MAX_HW_PORT) {
+hal/hal_com.c:11006:		dvobj->p0_tsf.sync_port = hw_port;
+hal/hal_com.c:11007:		dvobj->p0_tsf.offset = tr_offset;
+hal/hal_com.c:11016:		dvobj->p0_tsf.sync_port = MAX_HW_PORT;
+hal/hal_com.c:11017:		dvobj->p0_tsf.offset = 0;
+hal/hal_com.c:11033:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:11034:		iface = dvobj->padapters[i];
+hal/hal_com.c:11064:	if (dvobj->p0_tsf.sync_port == MAX_HW_PORT)
+hal/hal_com.c:11067:		RTW_INFO("[TSF_SYNC] org p0 sync port = %d\n", dvobj->p0_tsf.sync_port);
+hal/hal_com.c:11068:	RTW_INFO("[TSF_SYNC] timer offset = %d\n", dvobj->p0_tsf.offset);
+hal/hal_com.c:11080:				if ((dvobj->p0_tsf.sync_port != MAX_HW_PORT) && (hw_port == HW_PORT0)) {
+hal/hal_com.c:11086:				if ((dvobj->p0_tsf.sync_port == MAX_HW_PORT) &&
+hal/hal_com.c:11104:				if (dvobj->p0_tsf.sync_port == hw_port) {
+hal/hal_com.c:11132:				if ((dvobj->p0_tsf.sync_port == MAX_HW_PORT) &&
+hal/hal_com.c:11155:					(dvobj->p0_tsf.sync_port != MAX_HW_PORT)) {
+hal/hal_com.c:11170:	if (dvobj->p0_tsf.sync_port == MAX_HW_PORT)
+hal/hal_com.c:11173:		RTW_INFO("[TSF_SYNC] p0 sync port = %d\n", dvobj->p0_tsf.sync_port);
+hal/hal_com.c:11174:	RTW_INFO("[TSF_SYNC] timer offset = %d\n", dvobj->p0_tsf.offset);
+hal/hal_com.c:11246:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_com.c:11247:			iface = dvobj->padapters[i];
+hal/hal_com.c:13996:	struct clt_port_t  *cltp = &dvobj->clt_port;
+hal/hal_com.c:14032:	struct clt_port_t  *cltp = &dvobj->clt_port;
+hal/rtl8822b/rtl8822b_ops.c:2010:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/rtl8822b/rtl8822b_ops.c:2011:		if (get_hw_port(dvobj->padapters[i]) == HW_PORT0) {
+hal/rtl8822b/rtl8822b_ops.c:2012:			if_port0 = dvobj->padapters[i];
+hal/rtl8822b/usb/rtl8822bu_ops.c:32:	pdvobj->HardwareType = HARDWARE_TYPE_RTL8822BU;
+hal/rtl8822b/usb/rtl8822bu_halmac.c:66:	struct usb_device *pusbd = pdvobj->pusbdev;
+hal/rtl8822b/usb/rtl8822bu_xmit.c:1061:	pipe = usb_sndbulkpipe(pdvobj->pusbdev, pHalData->Queue2EPNum[(u8)MGT_QUEUE_INX] & 0x0f);
+hal/rtl8822b/usb/rtl8822bu_xmit.c:1063:	usb_fill_bulk_urb(urb, pdvobj->pusbdev, pipe,
+hal/rtl8822b/rtl8822b_halinit.c:216:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/rtl8822b/rtl8822b_halinit.c:217:			iface = dvobj->padapters[i];
+hal/hal_btcoex.c:526:		struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_btcoex.c:604:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_btcoex.c:605:		iface = dvobj->padapters[i];
+hal/hal_btcoex.c:642:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_btcoex.c:643:		iface = dvobj->padapters[i];
+hal/hal_btcoex.c:1293:		*pU1Tmp = padapter->dvobj->pwrctl_priv.pwr_mode;
+hal/hal_btcoex.c:1551:	pwrpriv = &padapter->dvobj->pwrctl_priv;
+hal/hal_intf.c:137:			dvobj->macid_ctl.num = rtw_min(hal_spec->macid_num, MACID_NUM_SW_LIMIT);
+hal/hal_intf.c:139:			dvobj->cam_ctl.sec_cap = hal_spec->sec_cap;
+hal/hal_intf.c:140:			dvobj->cam_ctl.num = rtw_min(hal_spec->sec_cam_ent_num, SEC_CAM_ENT_NUM_SW_LIMIT);
+hal/hal_intf.c:251:	struct macid_ctl_t *macid_ctl = &padapter->dvobj->macid_ctl;
+hal/hal_intf.c:357:		for (i = 0; i < dvobj->iface_nums; i++)
+hal/hal_intf.c:358:			rtw_sec_restore_wep_key(dvobj->padapters[i]);
+hal/hal_intf.c:488:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+hal/hal_mcc.c:77:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:217:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:218:			iface = dvobj->padapters[i];
+hal/hal_mcc.c:261:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:287:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:541:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:581:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:680:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:707:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:708:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:738:		struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:897:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:898:			iface = dvobj->padapters[i];
+hal/hal_mcc.c:941:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:942:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:1073:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1088:		*total_page_num += (2 * dvobj->iface_nums + 3);
+hal/hal_mcc.c:1098:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:1099:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:1465:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1493:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1521:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1593:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1678:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:1679:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:1767:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:1863:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:2020:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2021:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:2080:	if (dvobj->p0_tsf.sync_port != MAX_HW_PORT ) {
+hal/hal_mcc.c:2098:	struct mcc_obj_priv *mccobjpriv = &dvobj->mcc_objpriv;
+hal/hal_mcc.c:2210:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2211:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:2571:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:2622:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2626:			iface = dvobj->padapters[i];
+hal/hal_mcc.c:2666:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:2687:		for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2688:			iface = dvobj->padapters[i];
+hal/hal_mcc.c:2779:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2780:		if (!dvobj->padapters[i])
+hal/hal_mcc.c:2783:		pmccadapriv = &dvobj->padapters[i]->mcc_adapterpriv;
+hal/hal_mcc.c:2787:		pmlmeext = &dvobj->padapters[i]->mlmeextpriv;
+hal/hal_mcc.c:2800:			if (dvobj->padapters[i] != padapter) {
+hal/hal_mcc.c:2903:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:2904:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:3064:				struct mcc_obj_priv *pmccobjpriv = &dvobj->mcc_objpriv;
+hal/hal_mcc.c:3131:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:3149:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:3150:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:3221:			for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:3222:				iface = dvobj->padapters[i];
+hal/hal_mcc.c:3255:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:3256:		iface = dvobj->padapters[i];
+hal/hal_mcc.c:3351:	struct mcc_obj_priv *pmccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:3392:	struct mcc_obj_priv *mccobjpriv = &(dvobj->mcc_objpriv);
+hal/hal_mcc.c:3402:	for (i = 0; i < dvobj->iface_nums; i++) {
+hal/hal_mcc.c:3403:		iface = dvobj->padapters[i];
+hal/hal_halmac.c:43:	struct pwrctrl_priv *pwrpriv = &dvobj->pwrctl_priv;
+include/drv_types.h:517:#define GET_PRIMARY_ADAPTER(padapter) (((_adapter *)padapter)->dvobj->padapters[IFACE_ID0])
+include/drv_types.h:518:#define GET_IFACE_NUMS(padapter) (((_adapter *)padapter)->dvobj->iface_nums)
+include/drv_types.h:519:#define GET_ADAPTER(padapter, iface_id) (((_adapter *)padapter)->dvobj->padapters[iface_id])
+include/drv_types.h:1273:#define dvobj_to_pwrctl(dvobj) (&(dvobj->pwrctl_priv))
+include/drv_types.h:1275:#define dvobj_to_macidctl(dvobj) (&(dvobj->macid_ctl))
+include/drv_types.h:1276:#define dvobj_to_sec_camctl(dvobj) (&(dvobj->cam_ctl))
+include/drv_types.h:1277:#define dvobj_to_regsty(dvobj) (&(dvobj->padapters[IFACE_ID0]->registrypriv))
+include/drv_types.h:1281:#define dvobj_to_rfctl(dvobj) (&(dvobj->rf_ctl))
+include/drv_types.h:1286:	ATOMIC_SET(&dvobj->bSurpriseRemoved, _TRUE);
+include/drv_types.h:1290:	ATOMIC_SET(&dvobj->bSurpriseRemoved, _FALSE);
+include/drv_types.h:1294:	ATOMIC_SET(&dvobj->bDriverStopped, _TRUE);
+include/drv_types.h:1298:	ATOMIC_SET(&dvobj->bDriverStopped, _FALSE);
+include/drv_types.h:1300:#define dev_is_surprise_removed(dvobj)	(ATOMIC_READ(&dvobj->bSurpriseRemoved) == _TRUE)
+include/drv_types.h:1301:#define dev_is_drv_stopped(dvobj)		(ATOMIC_READ(&dvobj->bDriverStopped) == _TRUE)
+include/drv_types.h:1311:	return &dvobj->pusbintf->dev;
+include/drv_types.h:1314:	return &dvobj->intf_data.func->dev;
+include/drv_types.h:1317:	return &dvobj->intf_data.func->dev;
+include/drv_types.h:1320:	return &dvobj->ppcidev->dev;
+include/drv_types.h:1709:#define rtw_get_chip_type(adapter) (((PADAPTER)adapter)->dvobj->chip_type)
+include/drv_types.h:1710:#define rtw_get_hw_type(adapter) (((PADAPTER)adapter)->dvobj->HardwareType)
+include/drv_types.h:1711:#define rtw_get_intf_type(adapter) (((PADAPTER)adapter)->dvobj->interface_type)
+include/drv_types.h:1713:#define rtw_get_mi_nums(adapter) (((PADAPTER)adapter)->dvobj->iface_nums)
+include/hal_gspi.h:18:#define ffaddr2deviceId(pdvobj, addr)	(pdvobj->Queue2Pipe[addr])
+include/hal_sdio.h:18:#define ffaddr2deviceId(pdvobj, addr)	(pdvobj->Queue2Pipe[addr])
+os_dep/linux/usb_ops_linux.c:271:	struct usb_device *pusbd = pdvobj->pusbdev;
+os_dep/linux/usb_ops_linux.c:274:		pipe = usb_rcvbulkpipe(pusbd, pdvobj->RtInPipe[0]);
+os_dep/linux/usb_ops_linux.c:277:		pipe = usb_rcvintpipe(pusbd, pdvobj->RtInPipe[1]);
+os_dep/linux/usb_ops_linux.c:282:		ep_num = pdvobj->RtOutPipe[addr];
+os_dep/linux/usb_ops_linux.c:284:		ep_num = pdvobj->Queue2Pipe[addr];
+os_dep/linux/usb_ops_linux.c:328:	struct usb_device *pusbd = pdvobj->pusbdev;
+os_dep/linux/usb_ops_linux.c:556:	struct usb_device *pusbd = pdvobj->pusbdev;
+os_dep/linux/usb_ops_linux.c:826:	struct usb_device	*pusbd = pdvobj->pusbdev;
+os_dep/linux/usb_ops_linux.c:986:	struct usb_device	*pusbd = pdvobj->pusbdev;
+os_dep/linux/usb_ops_linux.c:1109:	struct usb_device	*pusbd = pdvobj->pusbdev;
+os_dep/linux/os_intfs.c:1788:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:1796:		adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:1814:			adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:1833:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:1841:		adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:2082:	_rtw_mutex_init(&pdvobj->hw_init_mutex);
+os_dep/linux/os_intfs.c:2083:	_rtw_mutex_init(&pdvobj->h2c_fwcmd_mutex);
+os_dep/linux/os_intfs.c:2084:	_rtw_mutex_init(&pdvobj->setch_mutex);
+os_dep/linux/os_intfs.c:2085:	_rtw_mutex_init(&pdvobj->setbw_mutex);
+os_dep/linux/os_intfs.c:2086:	_rtw_mutex_init(&pdvobj->rf_read_reg_mutex);
+os_dep/linux/os_intfs.c:2088:	_rtw_mutex_init(&pdvobj->sd_indirect_access_mutex);
+os_dep/linux/os_intfs.c:2091:	_rtw_mutex_init(&pdvobj->syson_indirect_access_mutex);
+os_dep/linux/os_intfs.c:2094:	_rtw_mutex_init(&pdvobj->customer_str_mutex);
+os_dep/linux/os_intfs.c:2095:	_rtw_memset(pdvobj->customer_str, 0xFF, RTW_CUSTOMER_STR_LEN);
+os_dep/linux/os_intfs.c:2098:	pdvobj->processing_dev_remove = _FALSE;
+os_dep/linux/os_intfs.c:2100:	ATOMIC_SET(&pdvobj->disable_func, 0);
+os_dep/linux/os_intfs.c:2102:	rtw_macid_ctl_init(&pdvobj->macid_ctl);
+os_dep/linux/os_intfs.c:2104:	rtw_clt_port_init(&pdvobj->clt_port);
+os_dep/linux/os_intfs.c:2106:	_rtw_spinlock_init(&pdvobj->cam_ctl.lock);
+os_dep/linux/os_intfs.c:2107:	_rtw_mutex_init(&pdvobj->cam_ctl.sec_cam_access_mutex);
+os_dep/linux/os_intfs.c:2109:	_rtw_spinlock_init(&pdvobj->io_reg_lock);
+os_dep/linux/os_intfs.c:2117:	pdvobj->nr_ap_if = 0;
+os_dep/linux/os_intfs.c:2118:	pdvobj->inter_bcn_space = DEFAULT_BCN_INTERVAL; /* default value is equal to the default beacon_interval (100ms) */
+os_dep/linux/os_intfs.c:2119:	_rtw_init_queue(&pdvobj->ap_if_q);
+os_dep/linux/os_intfs.c:2120:	pdvobj->vap_map = 0;
+os_dep/linux/os_intfs.c:2123:	rtw_init_timer(&(pdvobj->txbcn_timer), NULL, tx_beacon_timer_handlder, pdvobj);
+os_dep/linux/os_intfs.c:2127:	rtw_init_timer(&(pdvobj->dynamic_chk_timer), NULL, rtw_dynamic_check_timer_handlder, pdvobj);
+os_dep/linux/os_intfs.c:2128:	rtw_init_timer(&(pdvobj->periodic_tsf_update_end_timer), NULL, rtw_hal_periodic_tsf_update_end_timer_hdl, pdvobj);
+os_dep/linux/os_intfs.c:2131:	_rtw_mutex_init(&(pdvobj->mcc_objpriv.mcc_mutex));
+os_dep/linux/os_intfs.c:2132:	_rtw_mutex_init(&(pdvobj->mcc_objpriv.mcc_tsf_req_mutex));
+os_dep/linux/os_intfs.c:2133:	_rtw_spinlock_init(&pdvobj->mcc_objpriv.mcc_lock);
+os_dep/linux/os_intfs.c:2137:	pdvobj->en_napi_dynamic = 0;
+os_dep/linux/os_intfs.c:2156:	_rtw_mutex_free(&(pdvobj->mcc_objpriv.mcc_mutex));
+os_dep/linux/os_intfs.c:2157:	_rtw_mutex_free(&(pdvobj->mcc_objpriv.mcc_tsf_req_mutex));
+os_dep/linux/os_intfs.c:2158:	_rtw_spinlock_free(&pdvobj->mcc_objpriv.mcc_lock);
+os_dep/linux/os_intfs.c:2161:	_rtw_mutex_free(&pdvobj->hw_init_mutex);
+os_dep/linux/os_intfs.c:2162:	_rtw_mutex_free(&pdvobj->h2c_fwcmd_mutex);
+os_dep/linux/os_intfs.c:2165:	_rtw_mutex_free(&pdvobj->customer_str_mutex);
+os_dep/linux/os_intfs.c:2168:	_rtw_mutex_free(&pdvobj->setch_mutex);
+os_dep/linux/os_intfs.c:2169:	_rtw_mutex_free(&pdvobj->setbw_mutex);
+os_dep/linux/os_intfs.c:2170:	_rtw_mutex_free(&pdvobj->rf_read_reg_mutex);
+os_dep/linux/os_intfs.c:2172:	_rtw_mutex_free(&pdvobj->sd_indirect_access_mutex);
+os_dep/linux/os_intfs.c:2175:	_rtw_mutex_free(&pdvobj->syson_indirect_access_mutex);
+os_dep/linux/os_intfs.c:2178:	rtw_macid_ctl_deinit(&pdvobj->macid_ctl);
+os_dep/linux/os_intfs.c:2180:	rtw_clt_port_deinit(&pdvobj->clt_port);
+os_dep/linux/os_intfs.c:2183:	_rtw_spinlock_free(&pdvobj->cam_ctl.lock);
+os_dep/linux/os_intfs.c:2184:	_rtw_mutex_free(&pdvobj->cam_ctl.sec_cam_access_mutex);
+os_dep/linux/os_intfs.c:2187:	_rtw_spinlock_free(&pdvobj->io_reg_lock);
+os_dep/linux/os_intfs.c:2193:	_rtw_spinlock_free(&(pdvobj->ap_if_q.lock));
+os_dep/linux/os_intfs.c:2200:	if (dvobj->rtnl_lock_holder && dvobj->rtnl_lock_holder == current)
+os_dep/linux/os_intfs.c:2226:		dvobj->rtnl_lock_holder = thd_hdl;
+os_dep/linux/os_intfs.c:2228:	if (dvobj->rtnl_lock_holder && 0)
+os_dep/linux/os_intfs.c:2925:	for (i = VIF_START_ID; i < dvobj->iface_nums; i++)
+os_dep/linux/os_intfs.c:2926:		rtw_drv_stop_vir_if(dvobj->padapters[i]);
+os_dep/linux/os_intfs.c:2933:	for (i = VIF_START_ID; i < dvobj->iface_nums; i++)
+os_dep/linux/os_intfs.c:2934:		rtw_drv_free_vir_if(dvobj->padapters[i]);
+os_dep/linux/os_intfs.c:3084:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:3092:		adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:3119:			adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:3138:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:3139:		adapter = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:3723:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:3724:		iface = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:4524:		for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:4525:			iface = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:4593:	struct debug_priv *pdbgpriv = &dvobj->drv_dbg;
+os_dep/linux/os_intfs.c:4906:		for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:4907:			iface = dvobj->padapters[i];
+os_dep/linux/os_intfs.c:4959:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/os_intfs.c:4960:		iface = dvobj->padapters[i];
+os_dep/linux/usb_intf.c:82:			ATOMIC_SET(&dvobj->continual_io_error, MAX_CONTINUAL_IO_ERR + 1);
+os_dep/linux/usb_intf.c:366:	_rtw_mutex_init(&dvobj->usb_vendor_req_mutex);
+os_dep/linux/usb_intf.c:371:	dvobj->usb_alloc_vendor_req_buf = rtw_zmalloc(MAX_USB_IO_CTL_SIZE);
+os_dep/linux/usb_intf.c:372:	if (dvobj->usb_alloc_vendor_req_buf == NULL) {
+os_dep/linux/usb_intf.c:377:	dvobj->usb_vendor_req_buf  =
+os_dep/linux/usb_intf.c:378:		(u8 *)N_BYTE_ALIGMENT((SIZE_PTR)(dvobj->usb_alloc_vendor_req_buf), ALIGNMENT_UNIT);
+os_dep/linux/usb_intf.c:391:	if (dvobj->usb_vendor_req_buf)
+os_dep/linux/usb_intf.c:392:		rtw_mfree(dvobj->usb_alloc_vendor_req_buf, MAX_USB_IO_CTL_SIZE);
+os_dep/linux/usb_intf.c:396:	_rtw_mutex_free(&dvobj->usb_vendor_req_mutex);
+os_dep/linux/usb_intf.c:661:		if ((dvobj->NumInterfaces != 2 && dvobj->NumInterfaces != 3)
+os_dep/linux/usb_intf.c:662:		    || (dvobj->InterfaceNumber == 1)) {
+os_dep/linux/usb_intf.c:967:	pdbgpriv = &dvobj->drv_dbg;
+os_dep/linux/usb_intf.c:1005:	struct debug_priv *pdbgpriv = &pdvobj->drv_dbg;
+os_dep/linux/usb_intf.c:1083:	pdbgpriv = &dvobj->drv_dbg;
+os_dep/linux/usb_intf.c:1138:		usb_enable_autosuspend(dvobj->pusbdev);
+os_dep/linux/usb_intf.c:1140:		dvobj->pusbdev->autosuspend_disabled = 0;/* autosuspend disabled by the user */
+os_dep/linux/usb_intf.c:1144:		usb_autopm_put_interface(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1146:		usb_autopm_enable(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1148:		usb_autosuspend_device(dvobj->pusbdev, 1);
+os_dep/linux/usb_intf.c:1153:			usb_enable_autosuspend(dvobj->pusbdev);
+os_dep/linux/usb_intf.c:1155:			dvobj->pusbdev->autosuspend_disabled = 0;/* autosuspend disabled by the user */
+os_dep/linux/usb_intf.c:1159:			usb_autopm_put_interface(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1161:			usb_autopm_enable(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1163:			usb_autosuspend_device(dvobj->pusbdev, 1);
+os_dep/linux/usb_intf.c:1172:	RTW_INFO("...pm_usage_cnt(%d).....\n", atomic_read(&(dvobj->pusbintf->pm_usage_cnt)));
+os_dep/linux/usb_intf.c:1174:	RTW_INFO("...pm_usage_cnt(%d).....\n", dvobj->pusbintf->pm_usage_cnt);
+os_dep/linux/usb_intf.c:1194:		if (usb_autopm_get_interface(dvobj->pusbintf) < 0) {
+os_dep/linux/usb_intf.c:1200:		usb_autopm_disable(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1202:		usb_autoresume_device(dvobj->pusbdev, 1);
+os_dep/linux/usb_intf.c:1206:		RTW_INFO("...pm_usage_cnt(%d).....\n", atomic_read(&(dvobj->pusbintf->pm_usage_cnt)));
+os_dep/linux/usb_intf.c:1208:		RTW_INFO("...pm_usage_cnt(%d).....\n", dvobj->pusbintf->pm_usage_cnt);
+os_dep/linux/usb_intf.c:1214:			if (usb_autopm_get_interface(dvobj->pusbintf) < 0) {
+os_dep/linux/usb_intf.c:1220:			usb_autopm_disable(dvobj->pusbintf);
+os_dep/linux/usb_intf.c:1222:			usb_autoresume_device(dvobj->pusbdev, 1);
+os_dep/linux/usb_intf.c:1225:			RTW_INFO("...pm_usage_cnt(%d).....\n", atomic_read(&(dvobj->pusbintf->pm_usage_cnt)));
+os_dep/linux/usb_intf.c:1227:			RTW_INFO("...pm_usage_cnt(%d).....\n", dvobj->pusbintf->pm_usage_cnt);
+os_dep/linux/usb_intf.c:1272:	dvobj->padapters[dvobj->iface_nums++] = padapter;
+os_dep/linux/usb_intf.c:1319:		dvobj->pusbdev->do_remote_wakeup = 1;
+os_dep/linux/usb_intf.c:1332:			dvobj->pusbdev->dev.power.autosuspend_delay = 0 * HZ;/* 15 * HZ; idle-delay time */
+os_dep/linux/usb_intf.c:1334:			dvobj->pusbdev->autosuspend_delay = 0 * HZ;/* 15 * HZ; idle-delay time */
+os_dep/linux/usb_intf.c:1338:			usb_enable_autosuspend(dvobj->pusbdev);
+os_dep/linux/usb_intf.c:1340:			padapter->bDisableAutosuspend = dvobj->pusbdev->autosuspend_disabled ;
+os_dep/linux/usb_intf.c:1341:			dvobj->pusbdev->autosuspend_disabled = 0;/* autosuspend disabled by the user */
+os_dep/linux/usb_intf.c:1347:			RTW_INFO("%s...pm_usage_cnt(%d).....\n", __FUNCTION__, atomic_read(&(dvobj->pusbintf->pm_usage_cnt)));
+os_dep/linux/usb_intf.c:1349:			RTW_INFO("%s...pm_usage_cnt(%d).....\n", __FUNCTION__, dvobj->pusbintf->pm_usage_cnt);
+os_dep/linux/usb_intf.c:1564:	dvobj->processing_dev_remove = _TRUE;
+os_dep/linux/recv_linux.c:410:		if (dvobj->traffic_stat.cur_rx_tp > registry->napi_threshold)
+os_dep/linux/recv_linux.c:411:			dvobj->en_napi_dynamic = 1;
+os_dep/linux/recv_linux.c:413:			dvobj->en_napi_dynamic = 0;
+os_dep/linux/rtw_proc.c:1782:	for (i = 0; i < dvobj->iface_nums; i++)
+os_dep/linux/rtw_proc.c:1851:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+os_dep/linux/rtw_proc.c:1875:	struct cam_ctl_t *cam_ctl = &dvobj->cam_ctl;
+os_dep/linux/rtw_proc.c:1959:			ifbmp &= (1 << dvobj->iface_nums) - 1;
+os_dep/linux/rtw_proc.c:1961:		for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/rtw_proc.c:1962:			if (!(ifbmp & BIT(i)) || !dvobj->padapters[i])
+os_dep/linux/rtw_proc.c:1965:			if (!CHK_MLME_STATE(dvobj->padapters[i], WIFI_AP_STATE | WIFI_MESH_STATE)
+os_dep/linux/rtw_proc.c:1966:				|| !MLME_IS_ASOC(dvobj->padapters[i]))
+os_dep/linux/rtw_proc.c:1994:	struct macid_ctl_t *macid_ctl = &adapter->dvobj->macid_ctl;
+os_dep/linux/rtw_proc.c:3051:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/rtw_proc.c:3052:		iface = dvobj->padapters[i];
+os_dep/linux/rtw_proc.c:3098:		for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/rtw_proc.c:3099:			iface = dvobj->padapters[i];
+os_dep/linux/ioctl_cfg80211.c:2738:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/ioctl_cfg80211.c:2742:		iface = dvobj->padapters[i];
+os_dep/linux/ioctl_cfg80211.c:2789:	for (i = 0; i < dvobj->iface_nums; i++) {
+os_dep/linux/ioctl_cfg80211.c:2790:		iface = dvobj->padapters[i];
+os_dep/linux/ioctl_cfg80211.c:9930:	dvobj->wiphy = wiphy;
+os_dep/linux/ioctl_cfg80211.c:9943:	dvobj->wiphy = NULL;
+Binary file wlan.ko matches
+Binary file wlan.o matches

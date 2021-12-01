@@ -1,0 +1,19 @@
+#ifndef __RTK_OTP_REGION_H__
+#define __RTK_OTP_REGION_H__
+
+typedef enum {
+    OTP_REGION_HDR_DISABLE_ORI,
+    OTP_REGION_HDR_DISABLE_REMK,
+    OTP_REGION_REMARK_EN,
+    OTP_REGION_HDCP_1_4_BKSV_KEY,
+    OTP_REGION_HDCP_1_4_PRIVATE_KEY,
+    OTP_REGION_HDCP_2_2_KEY,
+    OTP_REGION_HDCP_2_2_BKSB_KEY,
+    OTP_REGION_NNIP_DISABLE_ORI,
+    OTP_REGION_NNIP_DISABLE_REMK,
+    OTP_REGION_WAFER_CLASS,
+}OTP_REGION_ID;
+
+extern int rtk_otp_region_read(OTP_REGION_ID region_id, unsigned char *data, unsigned int len);
+
+#endif

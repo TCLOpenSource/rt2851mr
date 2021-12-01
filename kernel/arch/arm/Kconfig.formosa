@@ -1,0 +1,129 @@
+#
+# Realtek Semiconductor Corp.
+#
+# RLX Linux Kernel Configuration
+#
+# Tony Wu (tonywu@realtek.com)
+# Dec. 07, 2008
+#
+
+source "formosa/config.top"
+source "formosa/config.soc"
+
+#
+# ARM
+#
+config SHEIPA
+	bool
+	default y
+	select CPU_LITTLE_ENDIAN if SOC_CPU_EL
+	select CPU_BIG_ENDIAN if SOC_CPU_EB
+	select HW_HAS_PCI if SOC_ENABLE_PCI
+	select HW_HAS_USB if SOC_ENABLE_USB
+	select HAVE_ARM_SCU if SOC_ENABLE_IOCU
+	select HAVE_SMP if SOC_ENABLE_SMP
+	select SMP if SOC_ENABLE_SMP
+	select VFP if SOC_ENABLE_VFP
+	select NEON if SOC_ENABLE_NEON
+	select CPU_HAS_L2C if SOC_ENABLE_L2C
+
+#
+# CPU
+#
+config CPU_ARMA5
+	bool
+	default y if SOC_CPU_ARMA5
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_TWD
+	select HAVE_ARM_GLOBAL_TIMER
+
+config CPU_ARMA7
+	bool
+	default y if SOC_CPU_ARMA7
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA9
+	bool
+	default y if SOC_CPU_ARMA9
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_TWD
+	select HAVE_ARM_GLOBAL_TIMER
+
+config CPU_ARMA12
+	bool
+	default y if SOC_CPU_ARMA12
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA15
+	bool
+	default y if SOC_CPU_ARMA15
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA17
+	bool
+	default y if SOC_CPU_ARMA17
+	select CPU_V7
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA53
+	bool
+	default y if SOC_CPU_ARMA53
+	select CPU_V8
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA57
+	bool
+	default y if SOC_CPU_ARMA57
+	select CPU_V8
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA57_A53
+	bool
+	default y if SOC_CPU_ARMA57_A53
+	select CPU_V8
+	select ARM_GIC
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARMA55
+	bool
+	default y if SOC_CPU_ARMA55
+	select CPU_V8
+	select ARM_GIC
+	select ARM_GIC_V3
+	select HAVE_ARM_ARCH_TIMER
+
+config CPU_ARM926
+	bool
+	default y if SOC_CPU_ARM926
+	select ARM_VIC
+
+config CPU_ARM946
+	bool
+	default y if SOC_CPU_ARM946
+	select ARM_VIC
+
+#
+# CACHE
+#
+config CPU_HAS_L2C
+	bool
+
+#
+# BUS
+#
+config HW_HAS_USB
+	bool
+
+config HW_HAS_PCI
+        bool

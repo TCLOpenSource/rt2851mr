@@ -1,0 +1,13 @@
+config RTK_KDRV_DDC
+	bool "Enable DDC"
+	default n
+	help
+		DDC Platform Device Driver
+
+config RTK_KDRV_DDC_SYSFS
+	bool "DDC sysfs support"
+	depends on RTK_KDRV_DDC
+	default y
+	help
+		DDC Sysfs support
+	

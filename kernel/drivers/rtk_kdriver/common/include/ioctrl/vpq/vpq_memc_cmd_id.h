@@ -1,0 +1,36 @@
+#ifndef _VPQ_MEMC_CMD_ID_H_
+#define _VPQ_MEMC_CMD_ID_H_
+
+/*-----------------------------------------------------------------------------
+	Constant Definitions
+------------------------------------------------------------------------------*/
+#define VPQ_IOC_MEMC_MAGIC  'm'
+/* Please use a different 8-bit number in your code */
+#define VPQ_MEMC_DEVICE_NAME		"vpqmemc"
+
+#define VPQ_IOC_MEMC_INITILIZE				_IOW(VPQ_IOC_MEMC_MAGIC, 1, int)
+#define VPQ_IOC_MEMC_UNINITILIZE			_IOW(VPQ_IOC_MEMC_MAGIC, 2, int)
+#define VPQ_IOC_MEMC_SETMOTIONCOMP			_IOW(VPQ_IOC_MEMC_MAGIC, 3, int)
+#define VPQ_IOC_MEMC_SETBLURLEVEL			_IOW(VPQ_IOC_MEMC_MAGIC, 4, int)
+#define VPQ_IOC_MEMC_SETJUDDERLEVEL			_IOW(VPQ_IOC_MEMC_MAGIC, 5, int)
+#define VPQ_IOC_MEMC_MOTIONCOMPONOFF		_IOW(VPQ_IOC_MEMC_MAGIC, 6, int)
+#define VPQ_IOC_MEMC_LOWDELAYMODE			_IOW(VPQ_IOC_MEMC_MAGIC, 7, int)
+#define VPQ_IOC_MEMC_SETRGBYUVMode			_IOW(VPQ_IOC_MEMC_MAGIC, 8, int)
+#define VPQ_IOC_MEMC_GETFRAMEDELAY			_IOW(VPQ_IOC_MEMC_MAGIC, 9, int)
+#define VPQ_IOC_MEMC_SETVIDEOBLOCK			_IOW(VPQ_IOC_MEMC_MAGIC, 10, int)
+#define VPQ_IOC_MEMC_SETTRUEMOTIONDEMO		_IOW(VPQ_IOC_MEMC_MAGIC, 11, int)
+#define VPQ_IOC_MEMC_GETFIRMWAREVERSION		_IOW(VPQ_IOC_MEMC_MAGIC, 12, int)
+#define VPQ_IOC_MEMC_SETBYPASSREGION			_IOW(VPQ_IOC_MEMC_MAGIC, 13, int)
+#define VPQ_IOC_MEMC_SETREVERSECONTROL		_IOW(VPQ_IOC_MEMC_MAGIC, 14, int)
+#define VPQ_IOC_MEMC_FREEZE				_IOW(VPQ_IOC_MEMC_MAGIC, 15, int)
+#define VPQ_IOC_MEMC_SETDEMOBAR			_IOW(VPQ_IOC_MEMC_MAGIC, 16, int)
+#define VPQ_IOC_MEMC_DEBUG				_IOW(VPQ_IOC_MEMC_MAGIC, 17, int)
+#define VPQ_IOC_MEMC_GETMOTION			_IOR(VPQ_IOC_MEMC_MAGIC, 18, int)
+#define VPQ_IOC_MEMC_GET_ENABLE		_IOW(VPQ_IOC_MEMC_MAGIC, 19, int)
+#define VPQ_IOC_MEMC_SET_LEVEL		_IOW(VPQ_IOC_MEMC_MAGIC, 20, int)
+#define VPQ_IOC_MEMC_GET_RANGE		_IOW(VPQ_IOC_MEMC_MAGIC, 21, int)
+#define VPQ_IOC_MEMC_FORCE_24TO48		_IOW(VPQ_IOC_MEMC_MAGIC, 22, int)
+
+#define VPQ_MEMC_IOC_MAXNR 23
+
+#endif	/* _VPQ_MEMC_CMD_ID_H_ */

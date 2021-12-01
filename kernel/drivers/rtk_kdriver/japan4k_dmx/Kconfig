@@ -1,0 +1,6 @@
+config RTK_KDRV_JP4K
+	bool "Enable Realtek JAPAN4k DMX Driver"
+	depends on RTK_KDRV_TP
+	default y if RTK_KDRV_TP
+	help
+	

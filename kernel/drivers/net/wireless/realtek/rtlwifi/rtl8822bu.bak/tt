@@ -1,0 +1,272 @@
+[29680.024857] RTW: module init start
+[29680.024858] CONFIG_IEEE80211W=y
+[29680.025449] RTW: rtl88x2bu v5.3.1.1_27678.20180430_COEX20180427-5959-Android
+[29680.025450] RTW: build time: Aug 14 2018 14:11:45
+[29680.025450] RTW: rtl88x2bu BT-Coex version = COEX20180427-5959
+[29680.025472] RTW: rtw_inetaddr_notifier_register
+[29680.025506] RTW: 
+               usb_endpoint_descriptor(0):
+[29680.025507] RTW: bLength=7
+[29680.025508] RTW: bDescriptorType=5
+[29680.025508] RTW: bEndpointAddress=84
+[29680.025509] RTW: wMaxPacketSize=512
+[29680.025509] RTW: bInterval=0
+[29680.025510] RTW: RT_usb_endpoint_is_bulk_in = 4
+[29680.025511] RTW: 
+               usb_endpoint_descriptor(1):
+[29680.025511] RTW: bLength=7
+[29680.025512] RTW: bDescriptorType=5
+[29680.025512] RTW: bEndpointAddress=5
+[29680.025513] RTW: wMaxPacketSize=512
+[29680.025513] RTW: bInterval=0
+[29680.025514] RTW: RT_usb_endpoint_is_bulk_out = 5
+[29680.025514] RTW: 
+               usb_endpoint_descriptor(2):
+[29680.025515] RTW: bLength=7
+[29680.025515] RTW: bDescriptorType=5
+[29680.025516] RTW: bEndpointAddress=6
+[29680.025516] RTW: wMaxPacketSize=512
+[29680.025517] RTW: bInterval=0
+[29680.025517] RTW: RT_usb_endpoint_is_bulk_out = 6
+[29680.025518] RTW: 
+               usb_endpoint_descriptor(3):
+[29680.025518] RTW: bLength=7
+[29680.025519] RTW: bDescriptorType=5
+[29680.025519] RTW: bEndpointAddress=87
+[29680.025520] RTW: wMaxPacketSize=64
+[29680.025520] RTW: bInterval=3
+[29680.025521] RTW: RT_usb_endpoint_is_int_in = 7, Interval = 3
+[29680.025521] RTW: 
+               usb_endpoint_descriptor(4):
+[29680.025522] RTW: bLength=7
+[29680.025522] RTW: bDescriptorType=5
+[29680.025523] RTW: bEndpointAddress=8
+[29680.025523] RTW: wMaxPacketSize=512
+[29680.025524] RTW: bInterval=0
+[29680.025524] RTW: RT_usb_endpoint_is_bulk_out = 8
+[29680.025525] RTW: nr_endpoint=5, in_num=2, out_num=3
+
+[29680.025526] RTW: USB_SPEED_HIGH
+[29680.025527] RTW: CHIP TYPE: RTL8822B
+[29680.025574] RTW: [HALMAC]11692M
+               HALMAC_MAJOR_VER = 1
+               HALMAC_PROTOTYPE_VER = 4
+               HALMAC_MINOR_VER = 8
+               HALMAC_PATCH_VER = 3
+[29680.026197] RTW: rtw_hal_config_rftype RF_Type is 2 TotalTxPath is 2
+[29680.026198] RTW: Chip Version Info: CHIP_8822B_Normal_Chip_UMC_D_CUT_2T2R_RomVer(3)
+[29680.026201] RTW: config_chip_out_EP OutEpQueueSel(0x07), OutEpNumber(3)
+[29680.026276] RTW: ERROR [HALMAC][ERR]Dump efuse in suspend
+[29680.190442] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_LOGICAL_EFUSE
+[29680.190456] RTW: HW EFUSE
+[29680.190458] RTW: 0x000: 29 81 00 3C  09 00 A1 00  B6 04 64 04  00 00 A3 00  
+[29680.190469] RTW: 0x010: 31 32 32 32  32 32 30 30  30 30 30 00  00 00 FF FF  
+[29680.190479] RTW: 0x020: FF FF 27 28  28 29 24 25  26 27 28 2A  27 27 28 28  
+[29680.190489] RTW: 0x030: 00 00 FF FF  00 FF 00 00  FF FF 32 33  33 32 32 32  
+[29680.190499] RTW: 0x040: 32 32 31 31  31 00 00 00  FF FF FF FF  28 28 29 2A  
+[29680.190508] RTW: 0x050: 26 27 28 29  2B 2D 2C 2C  2C 2C 00 00  FF FF 00 FF  
+[29680.190518] RTW: 0x060: 00 00 FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190527] RTW: 0x070: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190537] RTW: 0x080: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190546] RTW: 0x090: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190556] RTW: 0x0A0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190565] RTW: 0x0B0: FF FF FF FF  FF FF FF FF  7F 25 20 00  FF FF FF FF  
+[29680.190575] RTW: 0x0C0: FF 29 00 10  00 00 00 00  00 FF 03 FF  FF FF FF FF  
+[29680.190585] RTW: 0x0D0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190594] RTW: 0x0E0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190604] RTW: 0x0F0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190613] RTW: 0x100: DA 0B 2C B8  C1 67 02 EC  F0 0E 46 B2  28 09 03 52  
+[29680.190623] RTW: 0x110: 65 61 6C 74  65 6B 0E 03  38 30 32 2E  31 31 61 63  
+[29680.190633] RTW: 0x120: 20 4E 49 43  08 03 31 32  33 34 35 36  FF FF FF FF  
+[29680.190642] RTW: 0x130: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190652] RTW: 0x140: 33 0A 1F 01  00 00 21 0F  FF FF FF FF  FF FF FF FF  
+[29680.190661] RTW: 0x150: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190671] RTW: 0x160: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190725] RTW: 0x170: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190742] RTW: 0x180: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190758] RTW: 0x190: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190775] RTW: 0x1A0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190798] RTW: 0x1B0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190818] RTW: 0x1C0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190834] RTW: 0x1D0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190850] RTW: 0x1E0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190867] RTW: 0x1F0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190884] RTW: 0x200: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190900] RTW: 0x210: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190917] RTW: 0x220: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190933] RTW: 0x230: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190950] RTW: 0x240: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190967] RTW: 0x250: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.190983] RTW: 0x260: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191000] RTW: 0x270: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191016] RTW: 0x280: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191032] RTW: 0x290: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191049] RTW: 0x2A0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191066] RTW: 0x2B0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191082] RTW: 0x2C0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191098] RTW: 0x2D0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191115] RTW: 0x2E0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191131] RTW: 0x2F0: FF FF FF FF  FF FF FF FF  FF FF FF FF  FF FF FF FF  
+[29680.191150] RTW: EEPROM ID = 0x8129
+[29680.191152] RTW: EEPROM Version = 0
+[29680.191167] RTW: EEPROM Regulatory=0x01
+[29680.191169] RTW: EEPROM Board Type=0x01
+[29680.191170] RTW: EEPROM Enable BT-coex, ant_num=2
+[29680.191172] RTW: hal_com_config_channel_plan chplan:0x7F
+[29680.191174] RTW: EEPROM crystal_cap=0x25
+[29680.191175] RTW: EEPROM ThermalMeter=0x20
+[29680.191176] RTW: EEPROM Customer ID=0x00
+[29680.191177] RTW: EEPROM SupportRemoteWakeup=1
+[29680.191179] RTW: EEPROM PAType_2G is 0x0, ExternalPA_2G = 0
+[29680.191180] RTW: EEPROM PAType_5G is 0x0, external_pa_5g = 0
+[29680.191182] RTW: EEPROM LNAType_2G is 0x0, ExternalLNA_2G = 0
+[29680.191183] RTW: EEPROM LNAType_5G is 0x0, external_lna_5g = 0
+[29680.191184] RTW: EEPROM TypeGPA = 0x0
+[29680.191185] RTW: EEPROM TypeAPA = 0x0
+[29680.191187] RTW: EEPROM TypeGLNA = 0x0
+[29680.191188] RTW: EEPROM TypeALNA = 0x0
+[29680.191189] RTW: EEPROM rfe_type=0x3
+[29680.191195] RTW: ERROR [HALMAC][ERR]Dump efuse in suspend
+[29680.191262] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_PHYSICAL_EFUSE
+[29680.191266] RTW: EEPROM efuse[0x3D7]=0xf4
+[29680.191267] RTW: EEPROM efuse[0x3D8]=0xf5
+[29680.191268] RTW: EEPROM USB Switch=1
+[29680.191270] RTW: EEPROM VID = 0x0BDA, PID = 0xB82C
+[29680.197213] RTW: [HALMAC][ALWAYS]shall R reg twice!!
+[29680.197694] RTW: SetHwReg: bMacPwrCtrlOn=1
+[29680.199732] RTW: rtl8822b_fw_dl fw source from array
+[29680.241879] RTW: LocPsPoll: 1
+[29680.241883] RTW: LocBTQosNull: 2
+[29680.241886] RTW: LocNullData: 3
+[29680.241889] RTW: LocQosNull: 4
+[29680.241894] RTW: _cfg_drv_rsvd_pg_num: request 5 pages, but allocate 8 pages
+[29680.245399] RTW: rtl8822b_fw_dl Download Firmware from array success
+[29680.245402] RTW: NIC FW Version:22 SubVersion:6 FW size:145104
+[29680.249081] RTW: SetHwReg: bMacPwrCtrlOn=0
+[29680.249084] RTW: hal_read_mac_hidden_rpt OK! (1, 4ms), fwdl:1, id:0x19
+[29680.249086] RTW: rtw_hal_read_chip_info in 224 ms
+[29680.249100] RTW: init_channel_set((null)) ChannelPlan ID:0x7f, ch num:37
+[29680.249394] RTW: NR_RECVBUFF: 8
+[29680.249395] RTW: MAX_RECVBUF_SZ: 32768
+[29680.249399] RTW: NR_PREALLOC_RECV_SKB: 8
+[29680.249492] RTW: rtw_alloc_macid((null)) if1, mac_addr:ff:ff:ff:ff:ff:ff macid:1
+[29680.249722] RTW: [HW_SET_GPIO_WL_CTRL] 0x67=0x14
+[29680.250202] RTW: rtw_init_pwrctrl_priv: set GPIO_6 1 as default.
+[29680.250215] RTW: IQK FW offload:enable
+[29680.250219] RTW: init_phydm_cominfo: fab_ver=1 cut_ver=3
+[29680.250223] RTW: rtw_regsty_chk_target_tx_power_valid return _FALSE for band:0, path:0, rs:0, t:-1
+[29680.250247] RTW: phy_ConfigBBWithPgParaFile(): No File PHY_REG_PG.txt, Load from HWImg Array!
+[29680.250263] RTW: default power by rate loaded
+[29680.250834] RTW: pwrctrlpriv.bSupportRemoteWakeup~~~~~~
+[29680.250836] RTW: pwrctrlpriv.bSupportRemoteWakeup~~~[1]~~~
+[29680.250839] RTW: can't get autopm:
+[29680.250845] RTW: rtw_macaddr_cfg mac addr:ec:f0:0e:46:b2:28
+[29680.250848] RTW: bDriverStopped:True, bSurpriseRemoved:False, bup:0, hw_init_completed:0
+[29680.251222] RTW: NR_RECVBUFF: 8
+[29680.251224] RTW: MAX_RECVBUF_SZ: 32768
+[29680.251229] RTW: NR_PREALLOC_RECV_SKB: 8
+[29680.251343] RTW: rtw_alloc_macid((null)) if2, mac_addr:ff:ff:ff:ff:ff:ff macid:1
+[29680.251350] RTW: rtw_drv_add_vir_if if2 mac_addr : ee:f0:0e:46:b2:28
+[29680.251377] RTW: rtw_cfg80211_preinit_wiphy primary don't set p2p
+[29680.251383] RTW: rtw_wiphy_alloc(phy13)
+[29680.251387] RTW: rtw_wdev_alloc(padapter=00000000ff7c555a)
+[29680.251401] RTW: rtw_wiphy_alloc(phy14)
+[29680.251403] RTW: rtw_wdev_alloc(padapter=0000000079e67a47)
+[29680.251408] RTW: rtw_wiphy_register(phy13)
+[29680.251411] RTW: Register RTW cfg80211 vendor cmd(0x67) interface
+[29680.252005] RTW: rtw_ndev_init(wlan1) if1 mac_addr=ec:f0:0e:46:b2:28
+[29680.252130] RTW: rtw_ndev_notifier_call(wlan1) state:16
+[29680.252407] RTW: cfg80211_rtw_get_txpower
+[29680.252411] RTW: rtw_ndev_notifier_call(wlan1) state:5
+[29680.252640] RTW: rtw_wiphy_register(phy14)
+[29680.252643] RTW: Register RTW cfg80211 vendor cmd(0x67) interface
+[29680.252999] RTW: cfg80211_rtw_get_txpower
+[29680.253617] RTW: cfg80211_rtw_get_txpower
+[29680.257135] RTW: rtw_ndev_init(wlan2) if2 mac_addr=ee:f0:0e:46:b2:28
+[29680.257244] RTW: rtw_ndev_notifier_call(wlan2) state:16
+[29680.257461] RTW: cfg80211_rtw_get_txpower
+[29680.257464] RTW: rtw_ndev_notifier_call(wlan2) state:5
+[29680.257537] usbcore: registered new interface driver rtl88x2bu
+[29680.257538] RTW: module init ret=0
+[29680.263436] RTW: cfg80211_rtw_get_txpower
+[29680.281429] RTW: rtw_ndev_notifier_call(wlan1) state:13
+[29680.281433] RTW: _netdev_open(wlan1) , bup=0
+[29680.281436] RTW: rtl8822b_hal_init fw source from array
+[29680.290343] RTW: [HALMAC][ALWAYS]shall R reg twice!!
+[29680.292154] RTW: SetHwReg: bMacPwrCtrlOn=1
+[29680.337650] RTW: LocPsPoll: 1
+[29680.337653] RTW: LocBTQosNull: 2
+[29680.337656] RTW: LocNullData: 3
+[29680.337657] RTW: LocQosNull: 4
+[29680.337661] RTW: _cfg_drv_rsvd_pg_num: request 5 pages, but allocate 8 pages
+[29680.341044] RTW: rtw_start_drv_threads(wlan1) start RTW_CMD_THREAD
+[29680.936962] RTW: rtl8822b_hal_init Download Firmware from array success
+[29680.936967] RTW: NIC FW Version:22 SubVersion:6 FW size:145104
+[29680.937089] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_PHYSICAL_EFUSE
+[29680.937167] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_PHYSICAL_EFUSE
+[29680.937247] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_PHYSICAL_EFUSE
+[29680.944821] RTW: is_valid_id_status: HALMAC_FEATURE_DUMP_PHYSICAL_EFUSE
+[29680.949821] RTW: rtw_hal_set_default_port_id_cmd port_id :0, mad_id:0
+[29680.950433] RTW: ERROR rtl8822b_c2h_handler_no_io: C2H(9) enqueue FAIL!
+[29680.950586] RTW: rtl8822bu_init in 668ms
+[29680.950596] RTW: rtw_hal_set_macaddr_port wlan1- hw port(0) mac_addr =ec:f0:0e:46:b2:28
+[29680.950670] RTW: rtw_hal_set_macaddr_port wlan2- hw port(1) mac_addr =ee:f0:0e:46:b2:28
+[29680.950846] RTW: rtw_hal_get_macaddr_port wlan1- hw port(0) mac_addr =ec:f0:0e:46:b2:28
+[29680.950850] RTW: wlan1- hw port(0) mac_addr =ec:f0:0e:46:b2:28
+[29680.950923] RTW: rtw_hal_get_macaddr_port wlan2- hw port(1) mac_addr =ee:f0:0e:46:b2:28
+[29680.950926] RTW: wlan2- hw port(1) mac_addr =ee:f0:0e:46:b2:28
+[29680.951122] RTW: [HW_VAR_ENABLE_RX_BAR] 0x6A2=0x100
+[29680.956604] RTW: rtw_dyn_soml_config.
+[29680.956607] RTW: rtw_dyn_soml_para_set.
+[29680.956608] RTW: dyn_soml_en = 1
+[29680.956611] RTW: MAC Address = ec:f0:0e:46:b2:28
+[29680.956614] RTW: rtw_cfg80211_init_wiphy:rf_type=2
+[29680.956617] RTW: [HT] HAL Support LDPC = 0x03
+[29680.956618] RTW: [HT] HAL Support STBC = 0x01
+[29680.956621] RTW: [HT] HAL Support LDPC = 0x03
+[29680.956622] RTW: [HT] HAL Support STBC = 0x01
+[29680.956624] RTW: [VHT] Support LDPC = 0x03
+[29680.956625] RTW: [VHT] Support STBC = 0x03
+[29680.956632] RTW: rtw_build_vht_cap_ie, line745, Set MAX MPDU len = 11454 bytes
+               .
+[29680.956634] RTW: [VHT] Declare supporting RX LDPC
+[29680.956635] RTW: [VHT] Declare supporting SGI 80MHz
+[29680.956636] RTW: [VHT] Declare supporting TX STBC
+[29680.956638] RTW: [VHT] Declare supporting RX STBC = 1
+[29680.956660] RTW: _netdev_vir_if_open(wlan2) , bup=0
+[29680.956662] RTW: rtw_cfg80211_init_wiphy:rf_type=2
+[29680.956664] RTW: [HT] HAL Support LDPC = 0x03
+[29680.956665] RTW: [HT] HAL Support STBC = 0x01
+[29680.956666] RTW: [HT] HAL Support LDPC = 0x03
+[29680.956667] RTW: [HT] HAL Support STBC = 0x01
+[29680.956669] RTW: [VHT] Support LDPC = 0x03
+[29680.956670] RTW: [VHT] Support STBC = 0x03
+[29680.956674] RTW: rtw_build_vht_cap_ie, line745, Set MAX MPDU len = 11454 bytes
+               .
+[29680.956675] RTW: [VHT] Declare supporting RX LDPC
+[29680.956676] RTW: [VHT] Declare supporting SGI 80MHz
+[29680.956677] RTW: [VHT] Declare supporting TX STBC
+[29680.956679] RTW: [VHT] Declare supporting RX STBC = 1
+[29680.956693] RTW: _netdev_vir_if_open(wlan2) (bup=1) exit
+[29680.956694] RTW: -871x_drv - drv_open, bup=1
+[29680.956792] RTW: cfg80211_rtw_set_power_mgmt(wlan1) enabled:1, timeout:-1
+[29680.956795] RTW: rtw_ndev_notifier_call(wlan1) state:1
+[29680.956837] RTW: cfg80211_rtw_get_txpower
+[29680.957461] RTW: cfg80211_rtw_get_txpower
+[29680.960596] RTW: cfg80211_rtw_get_txpower
+[29682.974724] RTW: ==>rtw_ps_processor .fw_state(0)
+[29684.995604] RTW: ==>rtw_ps_processor .fw_state(0)
+[29687.011542] RTW: ==>rtw_ps_processor .fw_state(0)
+[29689.027308] RTW: ==>rtw_ps_processor .fw_state(0)
+[29691.038789] RTW: ==>rtw_ps_processor .fw_state(0)
+[29693.059378] RTW: ==>rtw_ps_processor .fw_state(0)
+[29695.070805] RTW: ==>rtw_ps_processor .fw_state(0)
+[29697.090753] RTW: ==>rtw_ps_processor .fw_state(0)
+[29699.102798] RTW: ==>rtw_ps_processor .fw_state(0)
+[29701.118811] RTW: ==>rtw_ps_processor .fw_state(0)
+[29703.134798] RTW: ==>rtw_ps_processor .fw_state(0)
+[29705.155798] RTW: ==>rtw_ps_processor .fw_state(0)
+[29707.166794] RTW: ==>rtw_ps_processor .fw_state(0)
+[29709.182814] RTW: ==>rtw_ps_processor .fw_state(0)
+[29711.198808] RTW: ==>rtw_ps_processor .fw_state(0)
+[29713.214772] RTW: ==>rtw_ps_processor .fw_state(0)
